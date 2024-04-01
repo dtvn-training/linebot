@@ -42,6 +42,11 @@ class UserService
         $this->userRepository = $userRepository;
     }
 
+    protected function isAccountLocked($user)
+    {
+        return $user->is_delete == 1 || $user->is_block == 1;
+    }
+
     public function login(RequestLogin $request)
     {
         try {
@@ -49,10 +54,8 @@ class UserService
             if (empty($user)) {
                 return $this->responseError('Email does not exist !');
             }
-            if ($user->is_delete == 1) {
-                return $this->responseError('Your account has been locked !');
-            }
-            if ($user->is_block == 1) {
+
+            if ($this->isAccountLocked($user)) {
                 return $this->responseError('Your account has been locked !');
             }
 
