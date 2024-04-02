@@ -42,7 +42,7 @@ class UserService
         $this->userRepository = $userRepository;
     }
 
-    protected function isAccountLocked($user)
+    public function isAccountLocked($user)
     {
         return $user->is_delete == 1 || $user->is_block == 1;
     }
