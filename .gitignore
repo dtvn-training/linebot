@@ -5,5 +5,5 @@ PBL6.html
 Features.html
 v1.env
 v2-redis.env
-src/DigiCertGlobalRootG2.crt.pem
-src/LINEBot(Main).postman_collection.json
+contents/DigiCertGlobalRootG2.crt.pem
+contents/LINEBot(Main).postman_collection.json
