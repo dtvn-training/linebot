@@ -28,6 +28,7 @@
         "barryvdh/laravel-debugbar": "^3.9",
         "brainmaestro/composer-git-hooks": "*",
         "fakerphp/faker": "^1.9.1",
+        "larastan/larastan": "2.0",
         "laravel/sail": "^1.0.1",
         "mockery/mockery": "^1.4.4",
         "nunomaduro/collision": "^6.1",
@@ -60,8 +61,10 @@
         "post-create-project-cmd": [
             "@php artisan key:generate --ansi"
         ],
-        "analyze":  "vendor/bin/pint --test",
-        "fix-format": "vendor/bin/pint"
+        "analyze-min":  "vendor/bin/phpstan analyze",
+        "analyze":  "vendor/bin/phpstan analyze --memory-limit=2G ",
+        "analyze-debug":  "vendor/bin/phpstan analyze --memory-limit=2G --debug",
+        "baseline":  "vendor/bin/phpstan analyse --generate-baseline --memory-limit=2G"
     },
     "extra": {
         "laravel": {
