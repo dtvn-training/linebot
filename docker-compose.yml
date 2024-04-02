@@ -80,7 +80,6 @@ services:
 
   npm:
     image: node:18.14.2
-    # image: node:current-alpine
     volumes:
       - ./contents/client:/var/www/html
     ports:
@@ -88,7 +87,7 @@ services:
       - "3001:3001"
       - "5173:5173"
     working_dir: /var/www/html/
-    entrypoint: [ 'npm' ]
+    command: ["npm", "run", "serve"] # Chạy lệnh npm run serve khi dịch vụ được bật
     networks:
       - laravel
 
