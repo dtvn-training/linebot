@@ -81,13 +81,13 @@ services:
   npm:
     image: node:18.14.2
     volumes:
-      - ./contents/client:/var/www/html
+      - ./contents/client:/var/www/html:delegated
     ports:
       - "3000:3000"
       - "3001:3001"
       - "5173:5173"
-    working_dir: /var/www/html/
-    command: ["npm", "run", "serve"] # Chạy lệnh npm run serve khi dịch vụ được bật
+    working_dir: /var/www/html
+    entrypoint: [ 'npm' ]
     networks:
       - laravel
 
