@@ -2,8 +2,10 @@
 FROM node:lts-alpine as develop-stage
 WORKDIR /app
 COPY ./contents/client ./
-RUN npm install
-RUN npm install -g @vue/cli-service
+# Không install node_module cho client (bằng docker-compose run --rm npm install)
+# RUN npm install # chỉ chạy ở lần đầu tiên , sử dụng lệnh này để cài trong máy ảo 
+# RUN npm install -g @vue/cli-service # chỉ chạy ở lần đầu tiên 
+# muốn cài thêm package thì thêm lệnh : ví dụ : npm install axios 
 COPY . .
 CMD ["npm", "run", "start"]
 
