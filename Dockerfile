@@ -1,9 +1,9 @@
 # develop stage
 FROM node:lts-alpine as develop-stage
 WORKDIR /app
-COPY ./contents/client/package*.json ./
+COPY ./contents/client ./
 RUN npm install
-RUN npm install axios
+RUN npm install -g @vue/cli-service
 COPY . .
 CMD ["npm", "run", "start"]
 

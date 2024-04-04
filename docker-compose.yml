@@ -80,16 +80,28 @@ services:
 
   npm:
     image: node:18.14.2
+    # image: node:current-alpine
     volumes:
-      - ./contents/client:/var/www/html:delegated
+      - ./contents/client:/var/www/html
     ports:
       - "3000:3000"
       - "3001:3001"
       - "5173:5173"
-    working_dir: /var/www/html
+    working_dir: /var/www/html/
     entrypoint: [ 'npm' ]
     networks:
       - laravel
+
+  vuejs-docker:
+    build:
+        context: ./
+        dockerfile: Dockerfile
+        target: "develop-stage"
+    volumes:
+        - "./contents/client:/app"
+        - "/app/node_modules"
+    ports:
+        - "8081:8080"
 
   artisan:
     build:
