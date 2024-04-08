@@ -1,6 +1,6 @@
 # develop stage
 FROM node:lts-alpine as develop-stage
-WORKDIR /app
+WORKDIR /var/www/html/client/
 CMD ["npm", "run", "start"]
 
 # build stage
