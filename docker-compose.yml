@@ -98,7 +98,7 @@ services:
         dockerfile: vue.dockerfile
         target: "develop-stage"
     volumes:
-        - ./contents/client:/app:cached
+        - ./contents/client:/app
     ports:
         - "8081:8080"
 
