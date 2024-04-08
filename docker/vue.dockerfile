@@ -5,7 +5,7 @@ CMD ["npm", "run", "start"]
 
 # build stage
 FROM develop-stage as build-stage
-# RUN npm run build
+RUN npm run build
 
 # production stage
 FROM nginx:latest as production-stage

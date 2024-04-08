@@ -92,7 +92,7 @@ services:
     networks:
       - laravel
 
-  vuejs-docker:
+  vuejs:
     build:
         context: ./docker
         dockerfile: vue.dockerfile
