@@ -82,7 +82,7 @@ services:
     image: node:18.14.2
     # image: node:current-alpine
     volumes:
-      - ./contents/client:/app
+        - ./contents/client:/var/www/html/client:delegated
     ports:
       - "3000:3000"
       - "3001:3001"
@@ -98,9 +98,9 @@ services:
         dockerfile: vue.dockerfile
         target: "develop-stage"
     volumes:
-        - ./contents/client:/var/www/html/client
+        - ./contents/client:/var/www/html/client:delegated
     ports:
-        - "8081:8080"
+        - "8089:8080"
     networks:
       - laravel
 
