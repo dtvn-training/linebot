@@ -80,7 +80,6 @@ services:
 
   npm:
     image: node:18.14.2
-    # image: node:current-alpine
     volumes:
         - ./contents/client:/var/www/html/client:delegated
     ports:
