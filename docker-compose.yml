@@ -17,16 +17,30 @@ services:
     volumes:
       - ./contents:/var/www/html:delegated
     depends_on:
-      - php
-      - redis
+      - php # wait until the service php is initialized before starting.
+      - redis # similar 
       - mysql
       - mailhog
     networks:
       - laravel
 
+  rector:
+    build:
+      context: ./docker
+      dockerfile: rector.dockerfile
+      args:
+        - UID=${UID:-1000}
+        - GID=${GID:-1000}
+    volumes:
+      - ./contents:/var/www/html:delegated
+    command: ['/var/www/html/vendor/bin/rector','process', 'app']
+    depends_on:
+      - app 
+    networks:
+      - laravel
+
   mysql:
     image: mysql/mysql-server:8.0
-    # image: mariadb:10.6
     restart: unless-stopped
     tty: true
     ports:
@@ -119,7 +133,6 @@ services:
       - laravel
 
   mailhog:
-    # image: mailhog/mailhog:latest
     image: axllent/mailpit
     ports:
       - "1025:1025"
