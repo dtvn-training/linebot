@@ -1,18 +1,29 @@
-# Sử dụng hình ảnh PHP phiên bản mong muốn làm cơ sở
-FROM php:latest
+FROM php:8-fpm-alpine
 
-WORKDIR /var/www/html
+ARG UID
+ARG GID
 
-# Cài đặt các gói cần thiết
-RUN apt-get update && apt-get install -y \
-    git \
-    unzip \
- && rm -rf /var/lib/apt/lists/*
+ENV UID=${UID}
+ENV GID=${GID}
 
-# Cài đặt Composer
-RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
+RUN mkdir -p /var/www/html/tools/rector
 
-# Tải và cài đặt Rector
-RUN composer global require rector/rector --prefer-dist --no-progress --no-suggest --classmap-authoritative
+WORKDIR /var/www/html/tools/rector
+RUN touch entryfile.txt
+RUN cat entryfile.txt
 
+COPY --from=composer:latest /usr/bin/composer /usr/local/bin/composer
+
+RUN delgroup dialout
+
+RUN addgroup -g ${GID} --system laravel
+RUN adduser -G laravel --system -D -s /bin/sh -u ${UID} laravel
+
+RUN sed -i "s/user = www-data/user = laravel/g" /usr/local/etc/php-fpm.d/www.conf
+RUN sed -i "s/group = www-data/group = laravel/g" /usr/local/etc/php-fpm.d/www.conf
+RUN echo "php_admin_flag[log_errors] = on" >> /usr/local/etc/php-fpm.d/www.conf
+
+USER laravel
+
+CMD ["sh", "-c", "composer install"]
 

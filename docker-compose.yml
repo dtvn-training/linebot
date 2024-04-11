@@ -24,21 +24,6 @@ services:
     networks:
       - laravel
 
-  rector:
-    build:
-      context: ./docker
-      dockerfile: rector.dockerfile
-      args:
-        - UID=${UID:-1000}
-        - GID=${GID:-1000}
-    volumes:
-      - ./contents:/var/www/html:delegated
-    command: ['/var/www/html/vendor/bin/rector','process', 'app']
-    depends_on:
-      - app 
-    networks:
-      - laravel
-
   mysql:
     image: mysql/mysql-server:8.0
     restart: unless-stopped
@@ -92,6 +77,20 @@ services:
     networks:
       - laravel
 
+  rector:
+    build:
+      context: ./docker
+      dockerfile: rector.dockerfile
+      args:
+        - UID=${UID:-1000}
+        - GID=${GID:-1000}
+    volumes:
+      - ./contents/tools/rector:/var/www/html/tools/rector
+    depends_on:
+      - php  
+    networks: 
+      - laravel
+      
   npm:
     image: node:18.14.2
     volumes:
