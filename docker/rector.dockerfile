@@ -6,11 +6,9 @@ ARG GID
 ENV UID=${UID}
 ENV GID=${GID}
 
-RUN mkdir -p /var/www/html/tools/rector
+RUN mkdir -p /var/www/html
 
-WORKDIR /var/www/html/tools/rector
-RUN touch entryfile.txt
-RUN cat entryfile.txt
+WORKDIR /var/www/html
 
 COPY --from=composer:latest /usr/bin/composer /usr/local/bin/composer
 
@@ -25,5 +23,4 @@ RUN echo "php_admin_flag[log_errors] = on" >> /usr/local/etc/php-fpm.d/www.conf
 
 USER laravel
 
-CMD ["sh", "-c", "composer install"]
 

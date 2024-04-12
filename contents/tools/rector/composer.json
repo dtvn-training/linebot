@@ -5,7 +5,7 @@
     },
     "scripts": {
         "rector": "vendor/bin/rector process src",
-        "rector-dry": "vendor/bin/rector process app --dry-run",
-        "rector-process": "vendor/bin/rector process app"
+        "rector-dry": "vendor/bin/rector process ../../app --dry-run",
+        "rector-process": "vendor/bin/rector process ../../app"
     }
 }
