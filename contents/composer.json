@@ -64,7 +64,7 @@
         "analyze-min":  "vendor/bin/phpstan analyze",
         "analyze":  "vendor/bin/phpstan analyze --memory-limit=2G ",
         "analyze-debug":  "vendor/bin/phpstan analyze --memory-limit=2G --debug",
-        "baseline":  "vendor/bin/phpstan analyse --generate-baseline --memory-limit=2G",
+        "baseline":  "vendor/bin/phpstan analyse --generate-baseline --memory-limit=2G"
     },
     "extra": {
         "laravel": {
