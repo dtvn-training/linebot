@@ -9,7 +9,7 @@
         "aws/aws-sdk-php-laravel": "^3.8",
         "brian2694/laravel-toastr": "5.57",
         "cloudinary-labs/cloudinary-laravel": "^2.0",
-        "darkaonline/l5-swagger": "^8.5",
+        "darkaonline/l5-swagger": "^8.6",
         "fruitcake/laravel-cors": "^2.0.5",
         "guzzlehttp/guzzle": "^7.8",
         "laravel/framework": "^9.0",

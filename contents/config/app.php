@@ -165,6 +165,7 @@ return [
         Illuminate\Translation\TranslationServiceProvider::class,
         Illuminate\Validation\ValidationServiceProvider::class,
         Illuminate\View\ViewServiceProvider::class,
+        \L5Swagger\L5SwaggerServiceProvider::class,
 
         /*
          * Package Service Providers...
@@ -202,6 +203,7 @@ return [
         'Toastr' => Brian2694\Toastr\Facades\Toastr::class,
         'Cloudinary' => CloudinaryLabs\CloudinaryLaravel\Facades\Cloudinary::class,
         'AWS' => Aws\Laravel\AwsFacade::class,
+        'L5Swagger' => \L5Swagger\Facades\L5Swagger::class,
     ])->toArray(),
 
 ];

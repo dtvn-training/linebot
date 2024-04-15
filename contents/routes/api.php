@@ -4,6 +4,7 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\BroadcastController;
 use App\Http\Controllers\ChannelStatisticalController;
 use App\Http\Controllers\ContentController;
+use App\Http\Controllers\TestSwaggerController;
 use App\Http\Controllers\UploadFileS3Controller;
 use App\Http\Controllers\UserController;
 use Illuminate\Http\Request;
@@ -97,3 +98,4 @@ Route::prefix('s3')->controller(UploadFileS3Controller::class)->group(function (
     Route::delete('/delete', 'deleteFileS3');
 });
 
+Route::post('add-post', [TestSwaggerController::class, 'createPost']);
