@@ -1,7 +1,7 @@
 #
 # Base install
 #
-FROM amd64/php:8.2-apache as base
+FROM php:8.1-apache-bullseye as base
 
 LABEL vendor="L5 Swagger"
 
@@ -24,7 +24,12 @@ RUN apt-get update && apt-get install -y \
 # Clear cache
 RUN apt-get clean && rm -rf /var/lib/apt/lists/*
 
-RUN pecl install memcached
+#+++
+RUN apt-get update --fix-missing -q \
+    && apt-get install -y curl mcrypt gnupg build-essential software-properties-common wget vim zip unzip libxml2-dev libz-dev libpng-dev libmemcached-dev \
+    && pecl install memcached \
+    && docker-php-ext-enable memcached 
+# RUN pecl install memcached 
 
 RUN pecl install -f xdebug \
     && docker-php-ext-enable xdebug
@@ -33,8 +38,12 @@ RUN a2enmod rewrite
 
 COPY --from=composer:latest /usr/bin/composer /usr/local/bin/composer
 
-COPY --chown=root:root docker/php/php.ini /usr/local/etc/php/php.ini
-COPY --chown=root:root docker/apache/000-default.conf /etc/apache2/sites-available/000-default.conf
+# Due to the organization of folders and files, it becomes
+# COPY --chown=root:root docker/php/php.ini /usr/local/etc/php/php.ini
+# COPY --chown=root:root docker/apache/000-default.conf /etc/apache2/sites-available/000-default.conf
+COPY --chown=root:root php/php.ini /usr/local/etc/php/php.ini
+COPY --chown=root:root apache/000-default.conf /etc/apache2/sites-available/000-default.conf
+
 COPY --chown=www-data:www-data . /app
 
 RUN sed -ri -e 's!/var/www/html!${APACHE_DOCUMENT_ROOT}!g' /etc/apache2/sites-available/*.conf
@@ -52,7 +61,7 @@ WORKDIR /app
 USER $user
 RUN alias composer='/usr/local/bin/php -dxdebug.mode=off /usr/local/bin/composer'
 
-RUN /usr/local/bin/php -dxdebug.mode=off /usr/local/bin/composer install --prefer-dist -vvv
+# RUN /usr/local/bin/php -dxdebug.mode=off /usr/local/bin/composer install --prefer-dist -vvv
 
 RUN /usr/local/bin/php -dxdebug.mode=off /usr/local/bin/composer create-project laravel/laravel l5-swagger-app --no-interaction
 
@@ -62,7 +71,7 @@ RUN /usr/local/bin/php -dxdebug.mode=off /usr/local/bin/composer config reposito
 
 RUN /usr/local/bin/php -dxdebug.mode=off /usr/local/bin/composer require 'darkaonline/l5-swagger:dev-master'
 
-RUN cp -r /app/tests/storage/annotations /app/l5-swagger-app/app/Annotations
+# RUN cp -r /app/tests/storage/annotations /app/l5-swagger-app/app/Annotations
 
 RUN for f in $(find app/Annotations/* -name '*.php'); do sed -i 's/namespace Tests\\storage\\annotations/namespace App\\Annotations/' $f; done
 

@@ -123,3 +123,29 @@ services:
     entrypoint: [ 'php', '/var/www/html/artisan' ]
     networks:
       - laravel
+
+  l5-swagger-app:
+    image: l5-swagger-app
+    container_name: l5-swagger-app
+    restart: "no"
+    build:
+      args:
+        user: l5-swagger
+        uid: 1000
+      context: ./docker
+      dockerfile: swagger.dockerfile
+      target: local
+    volumes:
+      - ./contents:/app/l5-swagger-app:rw
+    ports:
+      - "7777:80"
+    depends_on:
+      - mysql
+      - php
+      - composer
+      - rector
+      - npm
+      - vuejs
+      - artisan
+    networks:
+      - laravel
