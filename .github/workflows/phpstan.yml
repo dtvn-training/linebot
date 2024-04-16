@@ -23,7 +23,7 @@ jobs:
 
     - name: Install Composer dependencies
       working-directory: contents
-      run: composer install --prefer-dist --no-progress --no-suggest
+      run: composer install --prefer-dist 
 
     - name: Run PHPStan
       working-directory: contents
