@@ -19,7 +19,7 @@ jobs:
     - name: Setup PHP
       uses: shivammathur/setup-php@v2
       with:
-        php-version: '8.1.2' # Thay đổi tùy thuộc vào phiên bản PHP bạn đang sử dụng
+        php-version: '8.2' # Thay đổi tùy thuộc vào phiên bản PHP bạn đang sử dụng
 
     - name: Install Composer dependencies
       working-directory: contents
