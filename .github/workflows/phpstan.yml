@@ -22,7 +22,9 @@ jobs:
         php-version: '8.1.2' # Thay đổi tùy thuộc vào phiên bản PHP bạn đang sử dụng
 
     - name: Install Composer dependencies
+      working-directory: contents
       run: composer install --prefer-dist --no-progress --no-suggest
 
     - name: Run PHPStan
-      run: php vendor/bin/phpstan analyse --configuration contents/phpstan.neon
+      working-directory: contents
+      run: php vendor/bin/phpstan analyse --configuration phpstan.neon
