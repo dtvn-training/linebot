@@ -23,7 +23,7 @@ jobs:
 
     - name: Install Composer dependencies
       working-directory: contents
-      run: composer update && composer install 
+      run: composer install 
     - name: Run PHPStan
       working-directory: contents
       run: php vendor/bin/phpstan analyse --configuration phpstan.neon
