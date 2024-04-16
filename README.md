@@ -1,4 +1,43 @@
-# linebot
+# Docker Linebot
+# Version 2.0 
+```bash
+rename file .env.example to .env in folder contents 
+```
+```bash
+docker-compose up --build 
+```
+## Goto : 
+- API     : http://localhost:99
+- Client  : http://localhost:8089
+- Swagger : http://localhost:7777/api/documentation
+
+## Using PHPunit 
+```bash
+docker exec -it php sh
+php artisan test 
+php artisan test --filter UserLoginFeatureTest
+php artisan test --filter UserServiceUnitTest
+```
+## Using PHPstan 
+```bash
+docker exec -it php sh
+composer analyze
+composer analyze-min
+composer baseline
+```
+## Using Rector  
+```bash
+docker exec -it rector sh 
+cd tools/rector
+composer rector-dry
+composer rector-process
+```
+## Using Swagger  
+- http://localhost:7777/api/documentation
+
+
+-------------------------------------------------------------------------------------
+# version 1.0
 ## Step by Step
 ```bash
 rename file .env.example to .env in folder contents 
