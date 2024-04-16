@@ -8,7 +8,7 @@ module.exports = defineConfig({
     },
     watch: true,
     watchOptions: {
-        ignored: /node_modules/,
+        // ignored: /node_modules/,
         poll: 500,
     },
   },

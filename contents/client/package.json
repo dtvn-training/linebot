@@ -7,8 +7,7 @@
     "dev": "nodemon",
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
-    "lint": "vue-cli-service lint",
-    "postinstall": "npm run build"
+    "lint": "vue-cli-service lint"
   },
   "dependencies": {
     "@ckeditor/ckeditor5-build-classic": "^35.1.0",

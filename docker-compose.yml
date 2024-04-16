@@ -102,11 +102,9 @@ services:
       - sh
       - -c
       - |
-        if [ -d "node_modules" ]; then
-          npm run serve
-        else
-          npm install 
-        fi
+        npm install &&
+        npm run serve &&
+        tail -f /dev/null
     networks:
       - laravel
 
