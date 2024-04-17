@@ -126,32 +126,30 @@ class UserLoginFeatureTest extends TestCase
             'password' => '123456',
         ];
         $response = $this->post('api/user/login', $data);
-        dump($response);
-        // $response->assertStatus(200);
-        // $response->assertJson();
-        // $response->assertJson([
-        //     "data" => [
-        //         "id" => 1,
-        //         "email" => "nguyenvanmanh2001it1@gmail.com",
-        //         "line_user_id" => "U9b60d708a68e2b81a7ff7f9c57540779",
-        //         "channel_id" => 1,
-        //         "role" => "manager",
-        //         "is_delete" => 0,
-        //         "is_block" => 0,
-        //         "name" => "Nguyễn Văn Mạnh",
-        //         "avatar" => null,
-        //         "phone" => "0971404372",
-        //         "address" => "Phú Đa - Phú Vang - TT Huế",
-        //         "gender" => 0,
-        //         "date_of_birth" => "2001-08-29",
-        //         "token_type" => "bearer",
-        //         "expires_in" => 1209600
-        //     ],
-        //     "messages" => [
-        //         "Logged in successfully !"
-        //     ],
-        //     "status" => 200
-        // ]);
+        $response->assertStatus(200);
+        $response->assertJson([
+            "data" => [
+                "id" => 1,
+                "email" => "nguyenvanmanh2001it1@gmail.com",
+                "line_user_id" => "U9b60d708a68e2b81a7ff7f9c57540779",
+                "channel_id" => 1,
+                "role" => "manager",
+                "is_delete" => 0,
+                "is_block" => 0,
+                "name" => "Nguyễn Văn Mạnh",
+                "avatar" => null,
+                "phone" => "0971404372",
+                "address" => "Phú Đa - Phú Vang - TT Huế",
+                "gender" => 0,
+                "date_of_birth" => "2001-08-29",
+                "token_type" => "bearer",
+                "expires_in" => 1209600
+            ],
+            "messages" => [
+                "Logged in successfully !"
+            ],
+            "status" => 200
+        ]);
     }
     
 }
