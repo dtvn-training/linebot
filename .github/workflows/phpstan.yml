@@ -16,6 +16,11 @@ jobs:
     - name: Checkout repository
       uses: actions/checkout@v2
 
+    - name: Prepare Laravel Application
+        run: |
+          cp .env.example .env
+          php artisan key:generate
+
     - name: Setup PHP
       uses: shivammathur/setup-php@v2
       with:
@@ -24,6 +29,8 @@ jobs:
     - name: Install Composer dependencies
       working-directory: contents
       run: composer install 
+      env:
+        APP_ENV: testing
 
     - name: Run migrations and seed database
       working-directory: contents
