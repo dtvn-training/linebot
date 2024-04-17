@@ -22,11 +22,11 @@ jobs:
         with: 
           host port: 3309
           container port: 3306 
-          mysql database: 'hivanmanh' 
+          mysql database: 'linebot' 
           mysql user: 'hivanmanh' 
           mysql password: 'hivanmanh'
           mysql root password: 'hivanmanh'
-          
+
       - name: Setup PHP
         uses: shivammathur/setup-php@v2
         with:
@@ -44,8 +44,8 @@ jobs:
         env:
           APP_ENV: testing
           DB_CONNECTION: mysql
-          DB_HOST: localhost
-          DB_PORT: 3309
+          DB_HOST: mysql
+          DB_PORT: 3306
           DB_DATABASE: linebot
           DB_USERNAME: hivanmanh
           DB_PASSWORD: hivanmanh
