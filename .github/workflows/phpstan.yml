@@ -41,7 +41,7 @@ jobs:
         run: |
           cp .env.example .env
           php artisan key:generate
-          php artisan jwt:generate
+          php artisan jwt:sercet
         env:
           APP_ENV: testing
           DB_CONNECTION: mysql
