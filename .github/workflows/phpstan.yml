@@ -23,7 +23,9 @@ jobs:
 
     - name: Prepare Laravel Application
       working-directory: contents
-        run: cp .env.example .env
+      run: |
+        cp .env.example .env
+        php artisan key:generate
 
     - name: Install Composer dependencies
       working-directory: contents
