@@ -50,7 +50,7 @@ jobs:
           DB_DATABASE: linebot
           DB_USERNAME: root
           DB_PASSWORD: hivanmanh
-          JWT_SECRET: ${{ secrets.SuperSecret }}
+          JWT_SECRET: ${{ secrets.JWT_SECRET }}
 
       - name: Run migrations and seed database
         working-directory: contents
