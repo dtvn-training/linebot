@@ -40,7 +40,7 @@ class UsersSeeder extends Seeder
                 'line_user_id' => 'U667ca434abb5753fd28330c0441c7c78',
                 'channel_id' => 2,
                 'role' => 'manager',
-                'is_delete' => 0,
+                'is_delete' => 1,
                 'is_block' => 0,
                 'name' => 'Nhật Minh',
                 'avatar' => null,

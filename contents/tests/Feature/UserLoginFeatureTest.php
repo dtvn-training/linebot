@@ -142,9 +142,6 @@ class UserLoginFeatureTest extends TestCase
                 "address" => "Phú Đa - Phú Vang - TT Huế",
                 "gender" => 0,
                 "date_of_birth" => "2001-08-29",
-                "email_verified_at" => "2024-04-01T07:37:59.000000Z",
-                "created_at" => "2024-04-01T07:37:59.000000Z",
-                "updated_at" => "2024-04-01T07:37:59.000000Z",
                 "token_type" => "bearer",
                 "expires_in" => 1209600
             ],
