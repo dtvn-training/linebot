@@ -47,7 +47,7 @@ jobs:
           DB_HOST: 127.0.0.1
           DB_PORT: 3309
           DB_DATABASE: linebot
-          DB_USERNAME: hivanmanh
+          DB_USERNAME: root
           DB_PASSWORD: hivanmanh
 
       - name: Run migrations and seed database
