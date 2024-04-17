@@ -41,7 +41,7 @@ jobs:
         run: |
           cp .env.example .env
           php artisan key:generate
-          
+
         env:
           APP_ENV: testing
           DB_CONNECTION: mysql
@@ -50,6 +50,7 @@ jobs:
           DB_DATABASE: linebot
           DB_USERNAME: root
           DB_PASSWORD: hivanmanh
+          JWT_SECRET: ${{ secrets.SuperSecret }}
 
       - name: Run migrations and seed database
         working-directory: contents
