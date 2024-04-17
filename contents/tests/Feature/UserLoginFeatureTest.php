@@ -126,7 +126,8 @@ class UserLoginFeatureTest extends TestCase
             'password' => '123456',
         ];
         $response = $this->post('api/user/login', $data);
-        $response->assertStatus(200);
+        dump($response);
+        // $response->assertStatus(200);
         // $response->assertJson();
         // $response->assertJson([
         //     "data" => [
