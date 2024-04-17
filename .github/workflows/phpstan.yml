@@ -22,9 +22,6 @@ jobs:
           MYSQL_USER: hivanmanh
           MYSQL_PASSWORD: hivanmanh
           MYSQL_ROOT_PASSWORD: hivanmanh
-    steps:
-      - name: Wait for MySQL to start
-        run: dockerize -wait tcp://localhost:3309 -timeout 1m
 
   migrate_and_test:
     name: Migrate and Test
