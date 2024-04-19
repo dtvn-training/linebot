@@ -18,7 +18,7 @@ services:
     volumes:
       - ./contents:/var/www/html:delegated
     depends_on:
-      - php 
+      - app 
       - mysql
     networks:
       - laravel
