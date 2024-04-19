@@ -76,7 +76,7 @@ services:
       - ./contents:/var/www/html
     working_dir: /var/www/html
     depends_on: 
-      - php  
+      - app  
     # entrypoint: ["tail", "-f", "/dev/null"]
     tty: true
     entrypoint: 
