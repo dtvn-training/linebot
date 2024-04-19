@@ -125,7 +125,7 @@ services:
       - "7777:80"
     depends_on:
       - mysql
-      - php
+      - app
       - rector
       - client
     networks:
