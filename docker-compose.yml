@@ -5,8 +5,8 @@ networks:
 
 
 services:
-  app:
-    container_name: app
+  nginx:
+    container_name: nginx
     build:
       context: ./docker
       dockerfile: nginx.dockerfile
@@ -40,8 +40,8 @@ services:
     networks:
       - laravel
 
-  php:
-    container_name: php
+  app:
+    container_name: app
     build:
       context: ./docker
       dockerfile: php.dockerfile

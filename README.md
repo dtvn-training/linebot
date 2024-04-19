@@ -13,14 +13,14 @@ docker-compose up --build
 
 ## Using PHPunit 
 ```bash
-docker exec -it php sh
+docker exec -it app sh
 php artisan test 
 php artisan test --filter UserLoginFeatureTest
 php artisan test --filter UserServiceUnitTest
 ```
 ## Using PHPstan 
 ```bash
-docker exec -it php sh
+docker exec -it app sh
 composer analyze
 composer analyze-min
 composer baseline
