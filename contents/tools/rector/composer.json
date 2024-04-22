@@ -4,7 +4,6 @@
         "rector/rector": "^1.0"
     },
     "scripts": {
-        "rector": "vendor/bin/rector process src",
         "rector-dry": "vendor/bin/rector process ../../app --dry-run",
         "rector-process": "vendor/bin/rector process ../../app"
     }
