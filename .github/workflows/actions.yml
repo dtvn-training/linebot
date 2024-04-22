@@ -11,7 +11,7 @@ on:
 jobs:
 
   php_unit_test:
-    name: Migrate and Test
+    name: PHP Unit Test 
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
