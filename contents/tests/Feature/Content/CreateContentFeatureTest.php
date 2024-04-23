@@ -7,6 +7,7 @@ use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Illuminate\Http\UploadedFile;
 use Illuminate\Support\Facades\Storage;
+use App\Models\User;
 use Tests\TestCase;
 
 class CreateContentFeatureTest extends TestCase
@@ -82,6 +83,21 @@ class CreateContentFeatureTest extends TestCase
     
         $response->assertStatus(200)
                  ->assertDownload();
+    }
+
+    public function testAuthenticatedUserCanAccessProtectedRoute()
+    {
+        $user = new User([]);
+        $this->actingAs($user, 'user_api');
+    
+        // Assert that the user is authenticated
+        $this->assertAuthenticatedAs($user, 'user_api');
+    
+        // Make a request to the protected route
+        $response = $this->get('api/user/profile');
+    
+        // Assert that the response status is 200 (OK)
+        $response->assertStatus(200);
     }
 
     // public function test_orders_can_be_created(): void
