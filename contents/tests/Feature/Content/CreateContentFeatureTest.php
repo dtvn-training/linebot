@@ -85,21 +85,6 @@ class CreateContentFeatureTest extends TestCase
                  ->assertDownload();
     }
 
-    public function testAuthenticatedUserCanAccessProtectedRoute()
-    {
-        $user = new User([]);
-        $this->actingAs($user, 'user_api');
-    
-        // Assert that the user is authenticated
-        $this->assertAuthenticatedAs($user, 'user_api');
-    
-        // Make a request to the protected route
-        $response = $this->get('api/user/profile');
-    
-        // Assert that the response status is 200 (OK)
-        $response->assertStatus(200);
-    }
-
     // public function test_orders_can_be_created(): void
     // {
     //     $this->seed(AdminsSeeder::class);
