@@ -37,6 +37,7 @@ class CreateContentFeatureTest extends TestCase
     
     public function testCreateContentTextSuccessful()
     {
+        // Input data 
         $data = [
             "content_type" => "text",
             "content_data" => [
@@ -44,7 +45,11 @@ class CreateContentFeatureTest extends TestCase
                 "text" => "Hello, world"
             ]
         ];
+
+        // endpoint 
         $response = $this->post('api/content/add', $data, $this->getAuthorizationHeaders());
+
+        // Response Assertions
         $response->assertStatus(200);
         $response->assertJson([
             "messages" => [
@@ -71,9 +76,16 @@ class CreateContentFeatureTest extends TestCase
             "status" => 200
         ]);
     }
-
-    public function test_orders_can_be_created(): void
+    public function testFileDownload()
     {
-        $this->seed(AdminsSeeder::class);
+        $response = $this->get('api/s3/download?file_url=https://linebotpro.s3.us-east-2.amazonaws.com/linebot/17138820951680405782.jpg');
+    
+        $response->assertStatus(200)
+                 ->assertDownload();
     }
+
+    // public function test_orders_can_be_created(): void
+    // {
+    //     $this->seed(AdminsSeeder::class);
+    // }
 }

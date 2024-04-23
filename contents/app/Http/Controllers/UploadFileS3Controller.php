@@ -43,4 +43,18 @@ class UploadFileS3Controller extends Controller
         return $this->responseSuccess('Image was deleted successfully !');
     }
 
+    public function downloadFileS3(Request $request)
+    {
+        if ($request->has('file_url')) {
+            $fileUrl = $request->file_url;
+            $fileContent = file_get_contents($fileUrl);
+            $fileName = basename($fileUrl);
+            return response()->streamDownload(function () use ($fileContent) {
+                echo $fileContent;
+            }, $fileName)
+            ->setStatusCode(200);
+        } else return $this->responseError('File URL is missing !');
+    }
+    // goto : http://localhost:99/api/s3/download?file_url=https://linebotpro.s3.us-east-2.amazonaws.com/linebot/17138820951680405782.jpg
+
 }

@@ -96,6 +96,7 @@ Route::prefix('statistical')->controller(ChannelStatisticalController::class)->g
 Route::prefix('s3')->controller(UploadFileS3Controller::class)->group(function () {
     Route::post('/upload', 'uploadFileToS3');
     Route::delete('/delete', 'deleteFileS3');
+    Route::get('/download', 'downloadFileS3');
 });
 
 Route::post('add-post', [TestSwaggerController::class, 'createPost']);
