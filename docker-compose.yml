@@ -130,3 +130,21 @@ services:
       - client
     networks:
       - laravel
+
+  # redis:
+  #   container_name: redis
+  #   image: redis:alpine
+  #   restart: unless-stopped
+  #   ports:
+  #     - "6379:6379"
+  #   networks:
+  #     - laravel
+
+  # mailhog:
+  #   container_name: mailhog
+  #   image: axllent/mailpit
+  #   ports:
+  #     - "1025:1025"
+  #     - "8025:8025"
+  #   networks:
+  #     - laravel

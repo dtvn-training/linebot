@@ -37,7 +37,7 @@ class UserServiceUnitTest extends TestCase
     public function testGetAllUsers()
     {
         $userRepositoryMock = Mockery::mock(UserRepository::class);
-        $userRepositoryMock->shouldReceive('getMembers')->andReturn([
+        $fakeData = [
             [
                 "email" => "nguyenvanmanh2001it1@gmail.com",
                 "line_user_id" => "U9b60d708a68e2b81a7ff7f9c57540779",
@@ -54,12 +54,13 @@ class UserServiceUnitTest extends TestCase
                 "is_delete" => 1,
                 "is_block" => 0
             ]
-        ]);
+        ];
+        $userRepositoryMock->shouldReceive('getMembers')->andReturn($fakeData);
         $userService = new UserService($userRepositoryMock);
         $request = new Request();
         $result = $userService->getAllMembers($request)->getContent();
         $decodedResult = json_decode($result, true);
-        $this->assertEquals([
+        $expectedResults = [
             [
                 "email" => "nguyenvanmanh2001it1@gmail.com",
                 "line_user_id" => "U9b60d708a68e2b81a7ff7f9c57540779",
@@ -68,6 +69,7 @@ class UserServiceUnitTest extends TestCase
                 "is_delete" => 0,
                 "is_block" => 0
             ]
-        ], $decodedResult['data']);
+        ];
+        $this->assertEquals($expectedResults, $decodedResult['data']);
     }
 }

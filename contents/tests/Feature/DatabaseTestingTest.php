@@ -12,5 +12,8 @@ class DatabaseTestingTest extends TestCase
     public function test_models_can_be_instantiated(): void
     {
         $user = User::factory()->create();
+        $this->assertDatabaseHas('users', [
+            'id' => $user->id,
+        ]);
     }
 }
