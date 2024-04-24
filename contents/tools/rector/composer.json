@@ -4,7 +4,9 @@
         "rector/rector": "^1.0"
     },
     "scripts": {
-        "rector-dry": "vendor/bin/rector process ../../app --dry-run",
-        "rector-process": "vendor/bin/rector process ../../app"
+        "rectors-dry": "vendor/bin/rector process ../../app --dry-run",
+        "rectors-process": "vendor/bin/rector process ../../app",
+        "rector-dry": "vendor/bin/rector process /var/www/html/app/$FILENAME --dry-run",
+        "rector-process": "vendor/bin/rector process"
     }
 }

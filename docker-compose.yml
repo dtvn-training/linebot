@@ -73,7 +73,7 @@ services:
         - UID=${UID:-1000}
         - GID=${GID:-1000}
     volumes: 
-      - ./contents:/var/www/html
+      - ./contents:/var/www/html:delegated
     working_dir: /var/www/html
     depends_on: 
       - app  

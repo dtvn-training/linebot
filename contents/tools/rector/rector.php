@@ -2,13 +2,19 @@
 
 use Rector\Config\RectorConfig;
 use Rector\TypeDeclaration\Rector\Property\TypedPropertyFromStrictConstructorRector;
-
+$dir = '/var/www/html/app/';
+$files = [];
+$iterator = new RecursiveIteratorIterator(new RecursiveDirectoryIterator($dir));
+foreach ($iterator as $file) {
+    if ($file->isFile() && $file->getExtension() === 'php') {
+        $files[] = $file->getPathname();
+    }
+}
 return RectorConfig::configure()
-    // register single rule
     ->withRules([
         TypedPropertyFromStrictConstructorRector::class
     ])
-    // here we can define, what prepared sets of rules will be applied
+    ->withPaths($files)
     ->withPreparedSets(
         deadCode: true,
         codeQuality: true
