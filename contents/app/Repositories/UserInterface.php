@@ -8,4 +8,5 @@ namespace App\Repositories;
 interface UserInterface extends RepositoryInterface
 {
     public static function getAllUsers($filter);
+    public static function getMembers();
 }

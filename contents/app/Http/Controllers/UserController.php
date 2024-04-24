@@ -93,4 +93,9 @@ class UserController extends Controller
     {
         return $this->userService->changeIsDeleteManyMember($request);
     }
+
+    public function getAllMembers(Request $request)
+    {
+        return $this->userService->getAllMembers($request);
+    }
 }

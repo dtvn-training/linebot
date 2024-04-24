@@ -43,6 +43,7 @@ Route::prefix('user')->controller(UserController::class)->group(function () {
     Route::post('login', 'login');
     Route::post('forgot-pw-sendcode', 'forgotSend');
     Route::post('forgot-update', 'forgotUpdate');
+    Route::get('all-member', 'getAllMembers');
     Route::middleware('check.auth:user_api')->group(function () {
         Route::get('logout', 'logout');
         Route::get('profile', 'profile');

@@ -8,9 +8,14 @@ use Tests\TestCase; // should use
 use App\Models\User;
 use App\Repositories\UserRepository; 
 use Illuminate\Http\Request;
+use Mockery;
 
 class UserServiceUnitTest extends TestCase
 {
+    public function tearDown(): void
+    {
+        Mockery::close(); // Ensure that all mock objects are released after each test case
+    }
     public function testIsAccountLocked()
     {
         $userRepository = new UserRepository();
@@ -27,5 +32,42 @@ class UserServiceUnitTest extends TestCase
 
         $user4 = new User(['is_delete' => 1, 'is_block' => 1]);
         $this->assertTrue($userService->isAccountLocked($user4));
+    }
+
+    public function testGetAllUsers()
+    {
+        $userRepositoryMock = Mockery::mock(UserRepository::class);
+        $userRepositoryMock->shouldReceive('getMembers')->andReturn([
+            [
+                "email" => "nguyenvanmanh2001it1@gmail.com",
+                "line_user_id" => "U9b60d708a68e2b81a7ff7f9c57540779",
+                "channel_id" => 1,
+                "role" => "manager",
+                "is_delete" => 0,
+                "is_block" => 0
+            ],
+            [
+                "email" => "nguyenvanmanh.it1@yopmail.com",
+                "line_user_id" => "U667ca434abb5753fd28330c0441c7c78",
+                "channel_id" => 2,
+                "role" => "manager",
+                "is_delete" => 1,
+                "is_block" => 0
+            ]
+        ]);
+        $userService = new UserService($userRepositoryMock);
+        $request = new Request();
+        $result = $userService->getAllMembers($request)->getContent();
+        $decodedResult = json_decode($result, true);
+        $this->assertEquals([
+            [
+                "email" => "nguyenvanmanh2001it1@gmail.com",
+                "line_user_id" => "U9b60d708a68e2b81a7ff7f9c57540779",
+                "channel_id"=> 1,
+                "role" => "manager",
+                "is_delete" => 0,
+                "is_block" => 0
+            ]
+        ], $decodedResult['data']);
     }
 }

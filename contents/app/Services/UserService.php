@@ -424,4 +424,23 @@ class UserService
             return $this->responseError($e->getMessage());
         }
     }
+
+    public function getAllMembers(Request $request)
+    {
+        try {
+            // get data form repository  
+            $users = $this->userRepository->getMembers();
+            
+            // code logic 
+            $results = [];
+            foreach($users as $user) {
+                if($user['is_delete'] == 0) $results[] = $user;
+            }
+
+            return $this->responseSuccessWithData($results, 'Get all successfully !');
+        
+        } catch (Throwable $e) {
+            return $this->responseError($e->getMessage());
+        }
+    }
 }

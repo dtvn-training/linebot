@@ -54,4 +54,12 @@ class UserRepository extends BaseRepository implements UserInterface
 
         return $data;
     }
+
+    public static function getMembers()
+    {
+        $data = (new self)->model->select('email', 'line_user_id', 'channel_id', 'role', 'is_delete', 'is_block')->get();
+    
+        return $data;
+    }
+    
 }
