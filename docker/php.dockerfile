@@ -38,9 +38,6 @@ RUN docker-php-ext-install pdo pdo_mysql
 RUN docker-php-ext-configure gd --with-freetype --with-jpeg --with-webp \
     && docker-php-ext-install gd 
 
-# # Install Redis extension
-# RUN apk add --no-cache redis
-
 # Switch to laravel user
 USER laravel
 

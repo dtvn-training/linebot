@@ -13,7 +13,8 @@ return [
     |
     */
 
-    'default' => env('QUEUE_DRIVER', 'redis'),
+    // 'default' => env('QUEUE_DRIVER', 'redis'), # redis railway 
+    'default' => env('QUEUE_CONNECTION', 'sync'), # send mail database 
 
     /*
     |--------------------------------------------------------------------------
