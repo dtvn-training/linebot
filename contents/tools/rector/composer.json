@@ -5,11 +5,6 @@
         "driftingly/rector-laravel": "^1.1"
     },
     "scripts": {
-        "rector": "vendor/bin/rector",
-        "rector-rules": "vendor/bin/rector list-rules",
-        "rector-process": "vendor/bin/rector process /var/www/html/app",
-        "rector-dry": "vendor/bin/rector process /var/www/html/app --dry-run",
-        "rector-dry-debug": "vendor/bin/rector process /var/www/html/app --dry-run --debug"
     },
     "autoload-dev": {
         "psr-4": {
