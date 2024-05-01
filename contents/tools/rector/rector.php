@@ -47,7 +47,7 @@ return RectorConfig::configure()
     ->withRules([
         TypedPropertyFromStrictConstructorRector::class
     ])
-    ->withPaths($files)
+    // ->withPaths($files)
     ->withPreparedSets(
         deadCode: true,
         codeQuality: true,
