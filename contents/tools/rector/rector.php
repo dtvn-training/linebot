@@ -4,6 +4,7 @@ use Rector\Config\RectorConfig;
 use RectorLaravel\Set\LaravelSetList;
 use Rector\Doctrine\Set\DoctrineSetList;
 use Rector\TypeDeclaration\Rector\Property\TypedPropertyFromStrictConstructorRector;
+use Rector\CodeQuality\Rector\If_\SimplifyIfReturnBoolRector;
 $dir = '/var/www/html/app/';
 $dir_rector = '/var/www/html/tools/rector';
 $utils_rector = '/utils/rector/tests/Rector/';
@@ -18,6 +19,24 @@ return RectorConfig::configure()
     ->withSets([
         LaravelSetList::LARAVEL_100
     ])
+    // ->withImportNames() # use SHORT NAME , not use FQN 
+    // ->withImportNames(importShortClasses: false) # use FQN , no use SHORT NAME
+    ->withSkip([
+        '/var/www/html/app/Services',
+        '/var/www/html/app/Rules/SentAtDifference.php',
+        // or use fnmatch
+        '/var/www/html/app/*/Tests/*',
+        // SimplifyIfReturnBoolRector::class,
+    ])
+    ->withSkip([
+        SimplifyIfReturnBoolRector::class,
+    ])
+    // ->withSkip([
+    //     SimplifyIfReturnBoolRector::class => [
+    //         '/var/www/html/app/Services',
+    //         '/var/www/html/app/Rules/SentAtDifference.php',
+    //     ],
+    // ])
     // ->withSets([ 
     //     DoctrineSetList::DOCTRINE_CODE_QUALITY,
     //     $dir_rector . $utils_rector . 'RuleABCRector/config/configured_rule.php',
@@ -34,3 +53,4 @@ return RectorConfig::configure()
         codeQuality: true,
     )
     ->withFileExtensions(['php', 'phtml', 'js', 'blade.php']);
+
