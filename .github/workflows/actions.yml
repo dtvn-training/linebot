@@ -94,4 +94,4 @@ jobs:
 
       - name: Run Rector
         working-directory: contents/tools/rector
-        run: vendor/bin/rector process contents/app --dry-run
+        run: vendor/bin/rector process ../../app --dry-run
