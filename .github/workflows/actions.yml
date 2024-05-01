@@ -93,5 +93,5 @@ jobs:
         run: composer install 
 
       - name: Run Rector
-        working-directory: contents/tools/rector
+        working-directory: contents/app
         run: vendor/bin/rector process contents/app --dry-run
