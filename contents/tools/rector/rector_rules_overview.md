@@ -91,7 +91,7 @@ This Rector adds new default arguments in calls of defined methods and class typ
 <br>
 
 ### FunctionArgumentDefaultValueReplacerRector
-==> Các hàm của php nếu truyền vào đối số không hợp lệ , rector sẽ tự động sửa lại 
+- ==> Các hàm của php nếu truyền vào đối số không hợp lệ , rector sẽ tự động sửa lại 
 
 Streamline the operator arguments of version_compare function
 
@@ -107,7 +107,7 @@ Streamline the operator arguments of version_compare function
 <br>
 
 ### RemoveMethodCallParamRector
-==> Các tham số khai báo thừa , không sử dụng sẽ được loại bỏ  
+- ==> Các tham số khai báo thừa , không sử dụng sẽ được loại bỏ  
 
 Remove parameter of method call
 
@@ -129,7 +129,7 @@ Remove parameter of method call
 <br>
 
 ### ReplaceArgumentDefaultValueRector
-==> do cần cập nhật logic hoặc thay đổi hành vi của phương thức someMethod mà cũng có thể thay đổi đối số mặc định bằng một giá trị 
+- ==> do cần cập nhật logic hoặc thay đổi hành vi của phương thức someMethod mà cũng có thể thay đổi đối số mặc định bằng một giá trị 
 Replaces defined map of arguments in defined methods and their calls.
 
 :wrench: **configure it!**
@@ -147,7 +147,7 @@ Replaces defined map of arguments in defined methods and their calls.
 ## CodeQuality
 
 ### AbsolutizeRequireAndIncludePathRector
-==> Chuyển đổi Inlucde và Require thành các đường dẫn tuyệt đối . Đảm bảo chắc chắn về đường dẫn , dễ bảo trì (không lo lắng khi thay đổi thư mục) và tính linh hoạt cao khi di chuyển hoặc tái sử dụng . 
+- ==> Chuyển đổi Inlucde và Require thành các đường dẫn tuyệt đối . Đảm bảo chắc chắn về đường dẫn , dễ bảo trì (không lo lắng khi thay đổi thư mục) và tính linh hoạt cao khi di chuyển hoặc tái sử dụng . 
 
 include/require to absolute path. This Rector might introduce backwards incompatible code, when the include/require being changed depends on the current working directory.
 
@@ -169,7 +169,7 @@ include/require to absolute path. This Rector might introduce backwards incompat
 <br>
 
 ### AndAssignsToSeparateLinesRector
-==> Chia phép gán and thành 2 phần riêng biệt => rút gọn mã nguồn 
+- ==> Chia phép gán and thành 2 phần riêng biệt => rút gọn mã nguồn 
 
 Split 2 assigns ands to separate line
 
@@ -191,7 +191,7 @@ Split 2 assigns ands to separate line
 <br>
 
 ### ArrayKeyExistsTernaryThenValueToCoalescingRector
-==> Rector ArrayKeyExistsTernaryThenValueToCoalescingRector được sử dụng để chuyển đổi các biểu thức ternary sử dụng hàm array_key_exists() thành phép toán coalescing.
+- ==> Rector ArrayKeyExistsTernaryThenValueToCoalescingRector được sử dụng để chuyển đổi các biểu thức ternary sử dụng hàm array_key_exists() thành phép toán coalescing.
 
 Change `array_key_exists()` ternary to coalescing
 
@@ -211,7 +211,7 @@ Change `array_key_exists()` ternary to coalescing
 <br>
 
 ### ArrayMergeOfNonArraysToSimpleArrayRector
-==> sử dụng để chuyển đổi các lệnh array_merge sử dụng các biến không phải mảng thành một mảng trực tiếp => giúp cho đoạn code trở nên gọn hơn 
+- ==> sử dụng để chuyển đổi các lệnh array_merge sử dụng các biến không phải mảng thành một mảng trực tiếp => giúp cho đoạn code trở nên gọn hơn 
 
 Change array_merge of non arrays to array directly
 
@@ -234,7 +234,7 @@ Change array_merge of non arrays to array directly
 <br>
 
 ### BooleanNotIdenticalToNotIdenticalRector
-==> chuyển đổi các phép so sánh identical phủ định của boolean thành phép so sánh not identical (không áp dụng cho các giá trị không phải boolean). Thay vì so sánh === rồi phủ định bằng ! thì dùng !== để so sánh  
+- ==> chuyển đổi các phép so sánh identical phủ định của boolean thành phép so sánh not identical (không áp dụng cho các giá trị không phải boolean). Thay vì so sánh === rồi phủ định bằng ! thì dùng !== để so sánh  
 
 Negated identical boolean compare to not identical compare (does not apply to non-bool values)
 
@@ -262,7 +262,7 @@ Negated identical boolean compare to not identical compare (does not apply to no
 ### BoolvalToTypeCastRector
 
 Change `boolval()` to faster and readable (bool) `$value`
-==> Việc sử dụng phép ép kiểu (bool) thường được xem là tối ưu hơn so với hàm boolval(), vì nó không yêu cầu một cuộc gọi hàm và có thể làm mã nguồn trở nên rõ ràng hơn. Đồng thời, việc sử dụng phép ép kiểu cũng tạo ra mã nguồn ngắn gọn hơn và dễ đọc hơn.
+- ==> Việc sử dụng phép ép kiểu (bool) thường được xem là tối ưu hơn so với hàm boolval(), vì nó không yêu cầu một cuộc gọi hàm và có thể làm mã nguồn trở nên rõ ràng hơn. Đồng thời, việc sử dụng phép ép kiểu cũng tạo ra mã nguồn ngắn gọn hơn và dễ đọc hơn.
 
 - class: [`Rector\CodeQuality\Rector\FuncCall\BoolvalToTypeCastRector`](../rules/CodeQuality/Rector/FuncCall/BoolvalToTypeCastRector.php)
 
@@ -280,7 +280,7 @@ Change `boolval()` to faster and readable (bool) `$value`
 <br>
 
 ### CallUserFuncWithArrowFunctionToInlineRector
-==> Việc thay thế lời gọi hàm call_user_func() bằng một giá trị trực tiếp (trong trường hợp này là 100) có thể làm cho mã nguồn trở nên ngắn gọn hơn và dễ đọc hơn. Điều này giúp loại bỏ sự phức tạp không cần thiết và làm cho mã nguồn trở nên dễ hiểu hơn. 
+- ==> Việc thay thế lời gọi hàm call_user_func() bằng một giá trị trực tiếp (trong trường hợp này là 100) có thể làm cho mã nguồn trở nên ngắn gọn hơn và dễ đọc hơn. Điều này giúp loại bỏ sự phức tạp không cần thiết và làm cho mã nguồn trở nên dễ hiểu hơn. 
 ```php 
 // Định nghĩa một hàm mũi tên
 $sum = fn($a, $b) => $a + $b;
@@ -321,8 +321,8 @@ Refactor `call_user_func()` with arrow function to direct call
 <br>
 
 ### CallableThisArrayToAnonymousFunctionRector
-==> chuyển đổi cách sử dụng [$this, "method"] thành một hàm vô danh (anonymous function) thích hợp. Giúp đọc hiểu dễ dàng và dễ quản lý và bảo trị 
-==> Sử dụng hàm vô danh có thể giúp mã nguồn trở nên dễ đọc hơn vì nó có thể nằm ngay tại chỗ lời gọi hàm, giúp hiểu ngay từ lời gọi hàm rằng nó đang thực hiện một hành động cụ thể. Hơn nữa, việc sử dụng hàm vô danh giúp giảm bớt sự phức tạp của lớp và mã nguồn ngắn gọn hơn. Nếu một phương thức chỉ được sử dụng một lần, việc sử dụng hàm vô danh càng trở nên hợp lý. Cuối cùng, việc sử dụng hàm vô danh giúp giảm sự phụ thuộc của mã nguồn vào cấu trúc của lớp, tạo ra mã linh hoạt và dễ bảo trì hơn.
+- ==> chuyển đổi cách sử dụng [$this, "method"] thành một hàm vô danh (anonymous function) thích hợp. Giúp đọc hiểu dễ dàng và dễ quản lý và bảo trị 
+- ==> Sử dụng hàm vô danh có thể giúp mã nguồn trở nên dễ đọc hơn vì nó có thể nằm ngay tại chỗ lời gọi hàm, giúp hiểu ngay từ lời gọi hàm rằng nó đang thực hiện một hành động cụ thể. Hơn nữa, việc sử dụng hàm vô danh giúp giảm bớt sự phức tạp của lớp và mã nguồn ngắn gọn hơn. Nếu một phương thức chỉ được sử dụng một lần, việc sử dụng hàm vô danh càng trở nên hợp lý. Cuối cùng, việc sử dụng hàm vô danh giúp giảm sự phụ thuộc của mã nguồn vào cấu trúc của lớp, tạo ra mã linh hoạt và dễ bảo trì hơn.
 
 Convert [$this, "method"] to proper anonymous function
 
@@ -348,14 +348,14 @@ Convert [$this, "method"] to proper anonymous function
      }
  }
 ```
-==> Phần tử thứ nhất là $this, đại diện cho đối tượng hiện tại.
+- ==> Phần tử thứ nhất là $this, đại diện cho đối tượng hiện tại.
 Phần tử thứ hai là 'compareSize', đại diện cho tên của phương thức trong đối tượng hiện tại mà ta muốn sử dụng để so sánh các phần tử của mảng.
-==> usort() sẽ sử dụng phương thức compareSize của đối tượng hiện tại ($this) để so sánh các phần tử của mảng $values. Điều này đảm bảo rằng mảng $values sẽ được sắp xếp theo quy tắc được định nghĩa trong phương thức compareSize.
+- ==> usort() sẽ sử dụng phương thức compareSize của đối tượng hiện tại ($this) để so sánh các phần tử của mảng $values. Điều này đảm bảo rằng mảng $values sẽ được sắp xếp theo quy tắc được định nghĩa trong phương thức compareSize.
 
 <br>
 
 ### ChangeArrayPushToArrayAssignRector
-==> Điều này làm cho mã nguồn trở nên ngắn gọn hơn và dễ đọc hơn.
+- ==> Điều này làm cho mã nguồn trở nên ngắn gọn hơn và dễ đọc hơn.
 
 Change `array_push()` to direct variable assign
 
@@ -370,7 +370,7 @@ Change `array_push()` to direct variable assign
 <br>
 
 ### CleanupUnneededNullsafeOperatorRector
-==> Ở đây, toán tử nullsafe ?-> được loại bỏ vì không cần thiết. Bởi vì hàm get() đã trả về một đối tượng HelloWorld, nên chúng ta có thể sử dụng phương thức getString() của đối tượng đó trực tiếp mà không cần kiểm tra nullsafe. Điều này làm cho mã nguồn trở nên sạch sẽ và dễ đọc hơn. 
+- ==> Ở đây, toán tử nullsafe ?-> được loại bỏ vì không cần thiết. Bởi vì hàm get() đã trả về một đối tượng HelloWorld, nên chúng ta có thể sử dụng phương thức getString() của đối tượng đó trực tiếp mà không cần kiểm tra nullsafe. Điều này làm cho mã nguồn trở nên sạch sẽ và dễ đọc hơn. 
 
 Cleanup unneeded nullsafe operator
 
@@ -396,7 +396,7 @@ Cleanup unneeded nullsafe operator
 <br>
 
 ### CombineIfRector
-==> Rector CombineIfRector được sử dụng để kết hợp các câu lệnh if lồng nhau thành một câu lệnh if đơn. Giúp code ngắn gọn và dễ đọc hơn . 
+- ==> Rector CombineIfRector được sử dụng để kết hợp các câu lệnh if lồng nhau thành một câu lệnh if đơn. Giúp code ngắn gọn và dễ đọc hơn . 
 
 Merges nested if statements
 
@@ -421,7 +421,7 @@ Merges nested if statements
 <br>
 
 ### CombinedAssignRector
-==> Điều này làm cho mã nguồn trở nên ngắn gọn hơn và dễ đọc hơn.
+- ==> Điều này làm cho mã nguồn trở nên ngắn gọn hơn và dễ đọc hơn.
 
 Simplify `$value` = `$value` + 5; assignments to shorter ones
 
@@ -435,7 +435,7 @@ Simplify `$value` = `$value` + 5; assignments to shorter ones
 <br>
 
 ### CommonNotEqualRector
-==> Rector CommonNotEqualRector được sử dụng để thay thế toán tử <> (không bằng) bằng toán tử != (không bằng) với cùng một ý nghĩa, nhưng != được biết đến nhiều hơn.
+- ==> Rector CommonNotEqualRector được sử dụng để thay thế toán tử <> (không bằng) bằng toán tử != (không bằng) với cùng một ý nghĩa, nhưng != được biết đến nhiều hơn.
 
 Use common != instead of less known <> with same meaning
 
@@ -455,7 +455,7 @@ Use common != instead of less known <> with same meaning
 <br>
 
 ### CompactToVariablesRector
-==> lời gọi hàm compact('checkout', 'form') đã được thay thế bằng việc tạo một mảng với các phần tử là các biến tương ứng. Điều này làm cho mã nguồn trở nên rõ ràng hơn và dễ hiểu hơn.
+- ==> lời gọi hàm compact('checkout', 'form') đã được thay thế bằng việc tạo một mảng với các phần tử là các biến tương ứng. Điều này làm cho mã nguồn trở nên rõ ràng hơn và dễ hiểu hơn.
 
 Change `compact()` call to own array
 
@@ -478,7 +478,7 @@ Change `compact()` call to own array
 <br>
 
 ### CompleteDynamicPropertiesRector
-==> Rector CompleteDynamicPropertiesRector được sử dụng để tự động thêm các thuộc tính động (dynamic properties) bị thiếu trong lớp.
+- ==> Rector CompleteDynamicPropertiesRector được sử dụng để tự động thêm các thuộc tính động (dynamic properties) bị thiếu trong lớp.
 
 Add missing dynamic properties
 
@@ -502,7 +502,7 @@ Add missing dynamic properties
 <br>
 
 ### CompleteMissingIfElseBracketRector
-==> Rector CompleteMissingIfElseBracketRector được sử dụng để tự động thêm các dấu ngoặc đầy đủ cho các câu lệnh if/else bị thiếu.
+- ==> Rector CompleteMissingIfElseBracketRector được sử dụng để tự động thêm các dấu ngoặc đầy đủ cho các câu lệnh if/else bị thiếu.
 
 Complete missing if/else brackets
 
@@ -524,7 +524,7 @@ Complete missing if/else brackets
 <br>
 
 ### ConsecutiveNullCompareReturnsToNullCoalesceQueueRector
-==> Rector ConsecutiveNullCompareReturnsToNullCoalesceQueueRector được sử dụng để thay thế các câu lệnh kiểm tra null liên tiếp bằng MỘT CHUỖI TOÁN TỬ null coalesce (??).
+- ==> Rector ConsecutiveNullCompareReturnsToNullCoalesceQueueRector được sử dụng để thay thế các câu lệnh kiểm tra null liên tiếp bằng MỘT CHUỖI TOÁN TỬ null coalesce (??).
 
 Change multiple null compares to ?? queue
 
@@ -552,8 +552,8 @@ Change multiple null compares to ?? queue
 <br>
 
 ### ConvertStaticPrivateConstantToSelfRector
-==> Thay thế quyền truy cập static::* vào các hằng riêng tư bằng self::*
-==> Rector ConvertStaticPrivateConstantToSelfRector được sử dụng để thay thế việc truy cập vào hằng số private của class bằng cách sử dụng self:: thay vì static::.
+- ==> Thay thế quyền truy cập static::* vào các hằng riêng tư bằng self::*
+- ==> Rector ConvertStaticPrivateConstantToSelfRector được sử dụng để thay thế việc truy cập vào hằng số private của class bằng cách sử dụng self:: thay vì static::.
 
 Replaces static::* access to private constants with self::*
 
@@ -575,7 +575,7 @@ Replaces static::* access to private constants with self::*
 <br>
 
 ### ExplicitBoolCompareRector
-==> Rector ExplicitBoolCompareRector được sử dụng để làm cho điều kiện trong câu lệnh if trở nên rõ ràng và rành mạch hơn.
+- ==> Rector ExplicitBoolCompareRector được sử dụng để làm cho điều kiện trong câu lệnh if trở nên rõ ràng và rành mạch hơn.
 
 Make if conditions more explicit
 
@@ -597,8 +597,8 @@ Make if conditions more explicit
 <br>
 
 ### ExplicitReturnNullRector
-==> Rector ExplicitReturnNullRector được sử dụng để thêm câu lệnh return null; một cách rõ ràng vào cuối của phương thức hoặc hàm nếu nó trả về một giá trị, nhưng thiếu câu lệnh return chính.
-==> Có return nên không thể dùng void , tuy nhiên nếu điều kiện trong if không đúng thì nó không return về gì cả nên tả phải chỉnh lại code như ở dưới.
+- ==> Rector ExplicitReturnNullRector được sử dụng để thêm câu lệnh return null; một cách rõ ràng vào cuối của phương thức hoặc hàm nếu nó trả về một giá trị, nhưng thiếu câu lệnh return chính.
+- ==> Có return nên không thể dùng void , tuy nhiên nếu điều kiện trong if không đúng thì nó không return về gì cả nên tả phải chỉnh lại code như ở dưới.
 
 Add explicit return null to method/function that returns a value, but missed main return
 
@@ -625,8 +625,8 @@ Add explicit return null to method/function that returns a value, but missed mai
 <br>
 
 ### FlipTypeControlToUseExclusiveTypeRector
-==> Rector FlipTypeControlToUseExclusiveTypeRector được sử dụng để chuyển đổi điều kiện so sánh null sang sử dụng instanceof để kiểm tra đối tượng.
-==> Ở đây, điều kiện $dateTime === null đã được thay thế bằng ! $dateTime instanceof DateTime, giúp làm cho mã nguồn trở nên rõ ràng hơn về việc kiểm tra loại đối tượng.
+- ==> Rector FlipTypeControlToUseExclusiveTypeRector được sử dụng để chuyển đổi điều kiện so sánh null sang sử dụng instanceof để kiểm tra đối tượng.
+- ==> Ở đây, điều kiện $dateTime === null đã được thay thế bằng ! $dateTime instanceof DateTime, giúp làm cho mã nguồn trở nên rõ ràng hơn về việc kiểm tra loại đối tượng.
 
 Flip type control from null compare to use exclusive instanceof object
 
@@ -645,7 +645,7 @@ Flip type control from null compare to use exclusive instanceof object
 <br>
 
 ### FloatvalToTypeCastRector
-==>  lời gọi hàm floatval() và doubleval() đã được thay thế bằng cách sử dụng toán tử ép kiểu (float), giúp làm cho mã nguồn trở nên nhanh chóng hơn và dễ đọc hơn.
+- ==>  lời gọi hàm floatval() và doubleval() đã được thay thế bằng cách sử dụng toán tử ép kiểu (float), giúp làm cho mã nguồn trở nên nhanh chóng hơn và dễ đọc hơn.
 
 Change `floatval()` and `doubleval()` to faster and readable (float) `$value`
 
@@ -667,7 +667,7 @@ Change `floatval()` and `doubleval()` to faster and readable (float) `$value`
 <br>
 
 ### ForRepeatedCountToOwnVariableRector
-==> lời gọi hàm count($items) đã được thay thế bằng một biến $itemsCount, giúp tăng hiệu suất và giảm overhead khi gọi hàm count() trong mỗi vòng lặp.
+- ==> lời gọi hàm count($items) đã được thay thế bằng một biến $itemsCount, giúp tăng hiệu suất và giảm overhead khi gọi hàm count() trong mỗi vòng lặp.
 
 Change `count()` in for function to own variable
 
@@ -690,8 +690,8 @@ Change `count()` in for function to own variable
 <br>
 
 ### ForeachItemsAssignToEmptyArrayToAssignRector
-==> Rector ForeachItemsAssignToEmptyArrayToAssignRector được sử dụng để thay thế phần gán trong vòng lặp foreach một mảng rỗng bằng phép gán trực tiếp.
-==> Ở đây, phần gán $collectedItems = $items; đã được thay thế bằng phép gán trực tiếp, giúp làm cho mã nguồn trở nên ngắn gọn và dễ đọc hơn.
+- ==> Rector ForeachItemsAssignToEmptyArrayToAssignRector được sử dụng để thay thế phần gán trong vòng lặp foreach một mảng rỗng bằng phép gán trực tiếp.
+- ==> Ở đây, phần gán $collectedItems = $items; đã được thay thế bằng phép gán trực tiếp, giúp làm cho mã nguồn trở nên ngắn gọn và dễ đọc hơn.
 
 Change `foreach()` items assign to empty array to direct assign
 
@@ -715,7 +715,7 @@ Change `foreach()` items assign to empty array to direct assign
 <br>
 
 ### ForeachToInArrayRector
-==> Ở đây, vòng lặp foreach đã được thay thế bằng hàm in_array, giúp làm cho mã nguồn trở nên ngắn gọn và dễ đọc hơn.
+- ==> Ở đây, vòng lặp foreach đã được thay thế bằng hàm in_array, giúp làm cho mã nguồn trở nên ngắn gọn và dễ đọc hơn.
 
 Simplify `foreach` loops into `in_array` when possible
 
@@ -735,11 +735,11 @@ Simplify `foreach` loops into `in_array` when possible
 <br>
 
 ### GetClassToInstanceOfRector
-==> instanceof là một toán tử trong PHP được sử dụng để kiểm tra xem một đối tượng có thuộc về một lớp cụ thể (class) hay không. Cú pháp của toán tử instanceof như sau: $object instanceof ClassName
+- ==> instanceof là một toán tử trong PHP được sử dụng để kiểm tra xem một đối tượng có thuộc về một lớp cụ thể (class) hay không. Cú pháp của toán tử instanceof như sau: $object instanceof ClassName
 
-==> get_class() là một hàm trong PHP được sử dụng để lấy tên của lớp (class) mà một đối tượng đã được khởi tạo từ đó. Cú pháp của hàm get_class() như sau: string get_class ( object $object )
+- ==> get_class() là một hàm trong PHP được sử dụng để lấy tên của lớp (class) mà một đối tượng đã được khởi tạo từ đó. Cú pháp của hàm get_class() như sau: string get_class ( object $object )
 
-==> Ở đây, so sánh bằng get_class($event->job) đã được thay thế bằng instanceof, giúp làm cho mã nguồn trở nên rõ ràng và dễ đọc hơn.
+- ==> Ở đây, so sánh bằng get_class($event->job) đã được thay thế bằng instanceof, giúp làm cho mã nguồn trở nên rõ ràng và dễ đọc hơn.
 
 Changes comparison with get_class to instanceof
 
@@ -753,7 +753,7 @@ Changes comparison with get_class to instanceof
 <br>
 
 ### InlineArrayReturnAssignRector
-==> Rector InlineArrayReturnAssignRector được sử dụng để chuyển đổi việc khai báo mảng và gán giá trị cho mảng đó thành việc trả về mảng trực tiếp. Giúp code trở nên ngắn gọn và dễ đọc hơn.
+- ==> Rector InlineArrayReturnAssignRector được sử dụng để chuyển đổi việc khai báo mảng và gán giá trị cho mảng đó thành việc trả về mảng trực tiếp. Giúp code trở nên ngắn gọn và dễ đọc hơn.
 
 Inline just in time array dim fetch assigns to direct return
 
@@ -777,8 +777,8 @@ Inline just in time array dim fetch assigns to direct return
 <br>
 
 ### InlineConstructorDefaultToPropertyRector
-==> Rector InlineConstructorDefaultToPropertyRector được sử dụng để di chuyển giá trị mặc định của thuộc tính từ hàm khởi tạo (constructor) sang phần khai báo mặc định của thuộc tính.
-==> Ở đây, phần gán giá trị mặc định của thuộc tính $name trong hàm khởi tạo đã được loại bỏ và thay vào đó là khai báo giá trị mặc định trực tiếp trong phần khai báo của thuộc tính. Điều này giúp làm cho mã nguồn trở nên ngắn gọn và dễ đọc hơn.
+- ==> Rector InlineConstructorDefaultToPropertyRector được sử dụng để di chuyển giá trị mặc định của thuộc tính từ hàm khởi tạo (constructor) sang phần khai báo mặc định của thuộc tính.
+- ==> Ở đây, phần gán giá trị mặc định của thuộc tính $name trong hàm khởi tạo đã được loại bỏ và thay vào đó là khai báo giá trị mặc định trực tiếp trong phần khai báo của thuộc tính. Điều này giúp làm cho mã nguồn trở nên ngắn gọn và dễ đọc hơn.
 
 Move property default from constructor to property default
 
@@ -800,7 +800,7 @@ Move property default from constructor to property default
 <br>
 
 ### InlineIfToExplicitIfRector
-==> Rector InlineIfToExplicitIfRector được sử dụng để chuyển đổi các biểu thức điều kiện inline thành câu lệnh if rõ ràng. Giúp cho code trở nên dễ đọc hơn . 
+- ==> Rector InlineIfToExplicitIfRector được sử dụng để chuyển đổi các biểu thức điều kiện inline thành câu lệnh if rõ ràng. Giúp cho code trở nên dễ đọc hơn . 
 
 Change inline if to explicit if
 
@@ -824,8 +824,8 @@ Change inline if to explicit if
 <br>
 
 ### InlineIsAInstanceOfRector
-==> Rector InlineIsAInstanceOfRector được sử dụng để thay thế cuộc gọi hàm is_a() với kiểm tra instanceof cho một đối tượng và tên lớp.
-==> Ở đây, is_a($object, SomeType::class) đã được thay thế bằng $object instanceof SomeType, giúp làm cho mã nguồn trở nên rõ ràng hơn và dễ hiểu hơn.
+- ==> Rector InlineIsAInstanceOfRector được sử dụng để thay thế cuộc gọi hàm is_a() với kiểm tra instanceof cho một đối tượng và tên lớp.
+- ==> Ở đây, is_a($object, SomeType::class) đã được thay thế bằng $object instanceof SomeType, giúp làm cho mã nguồn trở nên rõ ràng hơn và dễ hiểu hơn.
 
 Change `is_a()` with object and class name check to instanceof
 
@@ -845,8 +845,8 @@ Change `is_a()` with object and class name check to instanceof
 <br>
 
 ### IntvalToTypeCastRector
-==> Rector IntvalToTypeCastRector được sử dụng để thay thế cuộc gọi hàm intval() bằng việc sử dụng ép kiểu (int) một cách nhanh chóng và dễ đọc hơn.
-==> Ở đây, cuộc gọi hàm intval($value) đã được thay thế bằng cách sử dụng ép kiểu (int) $value, giúp làm cho mã nguồn trở nên rõ ràng và dễ hiểu hơn.
+- ==> Rector IntvalToTypeCastRector được sử dụng để thay thế cuộc gọi hàm intval() bằng việc sử dụng ép kiểu (int) một cách nhanh chóng và dễ đọc hơn.
+- ==> Ở đây, cuộc gọi hàm intval($value) đã được thay thế bằng cách sử dụng ép kiểu (int) $value, giúp làm cho mã nguồn trở nên rõ ràng và dễ hiểu hơn.
 
 Change `intval()` to faster and readable (int) `$value`
 
@@ -866,10 +866,10 @@ Change `intval()` to faster and readable (int) `$value`
 <br>
 
 ### IsAWithStringWithThirdArgumentRector
-==> Rector IsAWithStringWithThirdArgumentRector được sử dụng để hoàn thiện đối số thứ ba bị thiếu trong trường hợp của hàm is_a() khi so sánh chuỗi.
-==> Ở đây, cuộc gọi hàm is_a($value, 'stdClass') đã được hoàn thiện bằng cách thêm đối số thứ ba true, giúp làm cho mã nguồn trở nên hoàn chỉnh hơn trong trường hợp so sánh chuỗi.
-==> Trong PHP, hàm `is_a()` có thể được sử dụng để kiểm tra xem một đối tượng có thuộc về một lớp cụ thể không. Tuy nhiên, nếu muốn kiểm tra xem một chuỗi có phải là tên của một lớp hay không, cần phải sử dụng đối số thứ ba để xác định rằng chuỗi đó có phải là tên lớp hay không.
-==> Mặc định, khi sử dụng hàm `is_a()` với một chuỗi như một đối số thứ hai, PHP có thể hiểu nó như là một tên lớp hoặc một đối tượng. Điều này có thể dẫn đến sự không chính xác trong việc kiểm tra kiểu dữ liệu. Bằng cách truyền `true` làm đối số thứ ba, đang báo cho PHP rằng chuỗi được cung cấp là tên của một lớp, không phải là một đối tượng, và do đó PHP sẽ thực hiện kiểm tra kiểu dữ liệu chính xác.
+- ==> Rector IsAWithStringWithThirdArgumentRector được sử dụng để hoàn thiện đối số thứ ba bị thiếu trong trường hợp của hàm is_a() khi so sánh chuỗi.
+- ==> Ở đây, cuộc gọi hàm is_a($value, 'stdClass') đã được hoàn thiện bằng cách thêm đối số thứ ba true, giúp làm cho mã nguồn trở nên hoàn chỉnh hơn trong trường hợp so sánh chuỗi.
+- ==> Trong PHP, hàm `is_a()` có thể được sử dụng để kiểm tra xem một đối tượng có thuộc về một lớp cụ thể không. Tuy nhiên, nếu muốn kiểm tra xem một chuỗi có phải là tên của một lớp hay không, cần phải sử dụng đối số thứ ba để xác định rằng chuỗi đó có phải là tên lớp hay không.
+- ==> Mặc định, khi sử dụng hàm `is_a()` với một chuỗi như một đối số thứ hai, PHP có thể hiểu nó như là một tên lớp hoặc một đối tượng. Điều này có thể dẫn đến sự không chính xác trong việc kiểm tra kiểu dữ liệu. Bằng cách truyền `true` làm đối số thứ ba, đang báo cho PHP rằng chuỗi được cung cấp là tên của một lớp, không phải là một đối tượng, và do đó PHP sẽ thực hiện kiểm tra kiểu dữ liệu chính xác.
 
 Vì vậy, trong trường hợp muốn kiểm tra xem một chuỗi có phải là tên của một lớp hay không, cần phải truyền `true` làm đối số thứ ba cho hàm `is_a()`.
 
@@ -891,7 +891,7 @@ Complete missing 3rd argument in case `is_a()` function in case of strings
 <br>
 
 ### IssetOnPropertyObjectToPropertyExistsRector
-==> Rector IssetOnPropertyObjectToPropertyExistsRector thực hiện thay thế isset trên thuộc tính của đối tượng bằng property_exists() kết hợp với kiểm tra không null.
+- ==> Rector IssetOnPropertyObjectToPropertyExistsRector thực hiện thay thế isset trên thuộc tính của đối tượng bằng property_exists() kết hợp với kiểm tra không null.
 
 Change isset on property object to `property_exists()` and not null check
 
@@ -909,14 +909,14 @@ Change isset on property object to `property_exists()` and not null check
      }
  }
 ```
-==> Thay vì sử dụng isset($this->x) để kiểm tra xem thuộc tính $x có tồn tại trong đối tượng hay không, Rector thực hiện thay thế bằng property_exists($this, 'x') && $this->x !== null, tức là kiểm tra xem thuộc tính $x có tồn tại trong đối tượng và không null hay không. Điều này giúp làm cho mã nguồn trở nên rõ ràng hơn về mục đích kiểm tra và tránh được các lỗi không mong muốn có thể xảy ra khi sử dụng isset trên thuộc tính đối tượng.
+- ==> Thay vì sử dụng isset($this->x) để kiểm tra xem thuộc tính $x có tồn tại trong đối tượng hay không, Rector thực hiện thay thế bằng property_exists($this, 'x') && $this->x !== null, tức là kiểm tra xem thuộc tính $x có tồn tại trong đối tượng và không null hay không. Điều này giúp làm cho mã nguồn trở nên rõ ràng hơn về mục đích kiểm tra và tránh được các lỗi không mong muốn có thể xảy ra khi sử dụng isset trên thuộc tính đối tượng.
 
 <br>
 
 ### JoinStringConcatRector
-==> Rector JoinStringConcatRector thực hiện việc nối các chuỗi lại với nhau thành một chuỗi duy nhất, trừ khi chiều dài của chuỗi kết quả vượt quá một giới hạn nhất định.
+- ==> Rector JoinStringConcatRector thực hiện việc nối các chuỗi lại với nhau thành một chuỗi duy nhất, trừ khi chiều dài của chuỗi kết quả vượt quá một giới hạn nhất định.
 
-==> Thay vì sử dụng toán tử nối chuỗi (.) để nối các chuỗi lại với nhau, Rector thực hiện thay thế bằng một chuỗi duy nhất Hi Tom. Điều này giúp làm cho mã nguồn trở nên gọn gàng hơn và dễ đọc hơn, đồng thời giảm thiểu việc tạo ra các chuỗi dài không cần thiết.
+- ==> Thay vì sử dụng toán tử nối chuỗi (.) để nối các chuỗi lại với nhau, Rector thực hiện thay thế bằng một chuỗi duy nhất Hi Tom. Điều này giúp làm cho mã nguồn trở nên gọn gàng hơn và dễ đọc hơn, đồng thời giảm thiểu việc tạo ra các chuỗi dài không cần thiết.
 
 Joins concat of 2 strings, unless the length is too long
 
@@ -936,8 +936,8 @@ Joins concat of 2 strings, unless the length is too long
 <br>
 
 ### LocallyCalledStaticMethodToNonStaticRector
-==> Rector LocallyCalledStaticMethodToNonStaticRector thực hiện việc chuyển các cuộc gọi phương thức tĩnh và chỉ gọi trong phạm vi cục bộ thành các cuộc gọi không tĩnh.
-==> Thay vì sử dụng self::someStatic(), Rector thực hiện thay thế bằng $this->someStatic(), điều này làm cho phương thức someStatic() không còn phải là phương thức tĩnh nữa mà trở thành phương thức không tĩnh. Điều này thường được khuyến khích trong các thiết kế hướng đối tượng linh hoạt hơn và dễ bảo trì hơn.
+- ==> Rector LocallyCalledStaticMethodToNonStaticRector thực hiện việc chuyển các cuộc gọi phương thức tĩnh và chỉ gọi trong phạm vi cục bộ thành các cuộc gọi không tĩnh.
+- ==> Thay vì sử dụng self::someStatic(), Rector thực hiện thay thế bằng $this->someStatic(), điều này làm cho phương thức someStatic() không còn phải là phương thức tĩnh nữa mà trở thành phương thức không tĩnh. Điều này thường được khuyến khích trong các thiết kế hướng đối tượng linh hoạt hơn và dễ bảo trì hơn.
 
 Chuyển đổi cuộc gọi từ phương thức tĩnh sang không tĩnh có thể mang lại một số lợi ích:
 1. **Tính linh hoạt cao hơn**: Khi sử dụng phương thức không tĩnh, có thể dễ dàng mở rộng và ghi đè phương thức đó trong các lớp con mà không cần phải lo lắng về các hành vi không mong muốn từ kế thừa phương thức tĩnh.
@@ -967,7 +967,7 @@ Change static method and local-only calls to non-static
 <br>
 
 ### LogicalToBooleanRector
-==> Rector LogicalToBooleanRector thực hiện việc thay thế các toán tử logic or và and bằng các toán tử logic tương đương || và && có thể hiểu rõ hơn.
+- ==> Rector LogicalToBooleanRector thực hiện việc thay thế các toán tử logic or và and bằng các toán tử logic tương đương || và && có thể hiểu rõ hơn.
 
 Change OR, AND to ||, && with more common understanding
 
@@ -983,7 +983,7 @@ Change OR, AND to ||, && with more common understanding
 <br>
 
 ### NewStaticToNewSelfRector
-==> Rector NewStaticToNewSelfRector thực hiện việc thay thế cách sử dụng new static() không an toàn bằng new self().
+- ==> Rector NewStaticToNewSelfRector thực hiện việc thay thế cách sử dụng new static() không an toàn bằng new self().
 
 Change unsafe new `static()` to new `self()`
 
@@ -1003,7 +1003,7 @@ Change unsafe new `static()` to new `self()`
 <br>
 
 ### NumberCompareToMaxFuncCallRector
-==> Thay thế toán tử 3 ngôi dùng để so sánh tìm ra giá trị lớn nhất thì dùng hàm max()
+- ==> Thay thế toán tử 3 ngôi dùng để so sánh tìm ra giá trị lớn nhất thì dùng hàm max()
 
 Ternary number compare to `max()` call
 
@@ -1023,8 +1023,8 @@ Ternary number compare to `max()` call
 <br>
 
 ### OptionalParametersAfterRequiredRector
-==> Rector đề xuất sắp xếp các tham số tùy chọn sau các tham số bắt buộc trong phương thức run() của lớp SomeObject.
-==> Lợi ích chính của việc này là làm cho việc sử dụng phương thức trở nên dễ dàng hơn. Khi gọi phương thức run(), sẽ cần chỉ định các tham số bắt buộc đầu tiên, và có thể bỏ qua các tham số tùy chọn nếu không muốn sử dụng chúng. Điều này giúp làm giảm sự phức tạp khi sử dụng phương thức và làm cho mã nguồn trở nên dễ hiểu hơn.
+- ==> Rector đề xuất sắp xếp các tham số tùy chọn sau các tham số bắt buộc trong phương thức run() của lớp SomeObject.
+- ==> Lợi ích chính của việc này là làm cho việc sử dụng phương thức trở nên dễ dàng hơn. Khi gọi phương thức run(), sẽ cần chỉ định các tham số bắt buộc đầu tiên, và có thể bỏ qua các tham số tùy chọn nếu không muốn sử dụng chúng. Điều này giúp làm giảm sự phức tạp khi sử dụng phương thức và làm cho mã nguồn trở nên dễ hiểu hơn.
 
 Move required parameters after optional ones
 
@@ -1043,8 +1043,8 @@ Move required parameters after optional ones
 <br>
 
 ### RemoveSoleValueSprintfRector
-==> Rector đề xuất loại bỏ lệnh gọi hàm sprintf() nếu không cần thiết.
-==> chúng ta có thể thấy rằng lệnh sprintf() không cần thiết ở đây vì nó chỉ làm nhiệm vụ trả về giá trị $welcome chính nó. Do đó, Rector đề xuất loại bỏ lệnh sprintf() và sử dụng biến $welcome . Việc này giúp làm cho mã nguồn trở nên gọn gàng và dễ đọc hơn.
+- ==> Rector đề xuất loại bỏ lệnh gọi hàm sprintf() nếu không cần thiết.
+- ==> chúng ta có thể thấy rằng lệnh sprintf() không cần thiết ở đây vì nó chỉ làm nhiệm vụ trả về giá trị $welcome chính nó. Do đó, Rector đề xuất loại bỏ lệnh sprintf() và sử dụng biến $welcome . Việc này giúp làm cho mã nguồn trở nên gọn gàng và dễ đọc hơn.
 
 Remove `sprintf()` wrapper if not needed
 
@@ -1065,8 +1065,8 @@ Remove `sprintf()` wrapper if not needed
 <br>
 
 ### RemoveUselessIsObjectCheckRector
-==> Rector đề xuất loại bỏ lệnh kiểm tra is_object() không cần thiết khi kết hợp với lệnh instanceof.
-==> Rector nhận thấy rằng khi một biểu thức đã được kiểm tra bằng instanceof, kiểm tra is_object() không còn cần thiết nữa vì mọi đối tượng đã được xác định là một đối tượng. Do đó, nó đề xuất loại bỏ lệnh is_object():
+- ==> Rector đề xuất loại bỏ lệnh kiểm tra is_object() không cần thiết khi kết hợp với lệnh instanceof.
+- ==> Rector nhận thấy rằng khi một biểu thức đã được kiểm tra bằng instanceof, kiểm tra is_object() không còn cần thiết nữa vì mọi đối tượng đã được xác định là một đối tượng. Do đó, nó đề xuất loại bỏ lệnh is_object():
 
 Remove useless `is_object()` check on combine with instanceof check
 
@@ -1080,7 +1080,7 @@ Remove useless `is_object()` check on combine with instanceof check
 <br>
 
 ### ReplaceMultipleBooleanNotRector
-==> Phủ định kép (`!!`) trong lập trình thường dùng để chuyển đổi một giá trị sang kiểu boolean. Quy tắc chuyển đổi như sau:
+- ==> Phủ định kép (`!!`) trong lập trình thường dùng để chuyển đổi một giá trị sang kiểu boolean. Quy tắc chuyển đổi như sau:
 1. **Giá trị null, undefined, rỗng**: Khi giá trị ban đầu là null, undefined, hoặc rỗng (trong trường hợp của chuỗi, mảng, đối tượng), thì kết quả sẽ là `false`.
    ```javascript
    !!null; // false
@@ -1097,7 +1097,7 @@ Remove useless `is_object()` check on combine with instanceof check
    !!{}; // true
    !![]; // true
    ```
-==> Trong Rector, lớp ReplaceMultipleBooleanNotRector đề xuất thay thế toán tử phủ định kép !! bằng cách ép kiểu sang boolean bằng cách sử dụng (bool).
+- ==> Trong Rector, lớp ReplaceMultipleBooleanNotRector đề xuất thay thế toán tử phủ định kép !! bằng cách ép kiểu sang boolean bằng cách sử dụng (bool).
 
 Replace the Double not operator (!!) by type-casting to boolean
 
@@ -1111,7 +1111,7 @@ Replace the Double not operator (!!) by type-casting to boolean
 <br>
 
 ### SetTypeToCastRector
-==> Thay vì dùng settype để thay đổi kiểu dữ liệu thì sử dụng ép kiểu dữ liệu , giúp cho đoạn code trở nên ngắn gọn và dễ hiểu hơn . 
+- ==> Thay vì dùng settype để thay đổi kiểu dữ liệu thì sử dụng ép kiểu dữ liệu , giúp cho đoạn code trở nên ngắn gọn và dễ hiểu hơn . 
 
 Changes `settype()` to (type) where possible
 
@@ -1134,7 +1134,7 @@ Changes `settype()` to (type) where possible
 <br>
 
 ### ShortenElseIfRector
-==> ShortenElseIfRector rút gọn cấu trúc else/if thành elseif, giúp mã nguồn trở nên ngắn gọn và dễ đọc hơn. Trong ví dụ bạn đưa ra:
+- ==> ShortenElseIfRector rút gọn cấu trúc else/if thành elseif, giúp mã nguồn trở nên ngắn gọn và dễ đọc hơn. Trong ví dụ bạn đưa ra:
 
 Shortens else/if to elseif
 
@@ -1161,8 +1161,8 @@ Shortens else/if to elseif
 <br>
 
 ### SimplifyArraySearchRector
-==> SimplifyArraySearchRector thực hiện việc thay thế các cuộc gọi hàm array_search bằng in_array. Điều này giúp làm cho mã nguồn trở nên ngắn gọn và dễ hiểu hơn.
-==> Gần giống với mục đích của : ForeachToInArrayRector 
+- ==> SimplifyArraySearchRector thực hiện việc thay thế các cuộc gọi hàm array_search bằng in_array. Điều này giúp làm cho mã nguồn trở nên ngắn gọn và dễ hiểu hơn.
+- ==> Gần giống với mục đích của : ForeachToInArrayRector 
 
 Simplify array_search to in_array
 
@@ -1183,7 +1183,7 @@ Simplify array_search to in_array
 <br>
 
 ### SimplifyBoolIdenticalTrueRector
-==> in_array đã trả về true hoặc false nên không cần thiết phải so sánh true và false 
+- ==> in_array đã trả về true hoặc false nên không cần thiết phải so sánh true và false 
 
 Simplify bool value compare to true or false
 
@@ -1206,8 +1206,8 @@ Simplify bool value compare to true or false
 <br>
 
 ### SimplifyConditionsRector
-==> gần giống với BooleanNotIdenticalToNotIdenticalRector 
-==> Mục đích cũng giúp cho mã nguồn ngắn gọn và dễ hiểu 
+- ==> gần giống với BooleanNotIdenticalToNotIdenticalRector 
+- ==> Mục đích cũng giúp cho mã nguồn ngắn gọn và dễ hiểu 
 
 Simplify conditions
 
@@ -1221,8 +1221,8 @@ Simplify conditions
 <br>
 
 ### SimplifyDeMorganBinaryRector
-==> Trong biểu thức này, chúng ta kiểm tra xem $a có nhỏ hơn hoặc bằng 20 và $b có lớn hơn 50 hay không. Nếu cả hai điều kiện đều đúng, $result sẽ có giá trị true; ngược lại, nó sẽ có giá trị false.
-==> Mục đích của sử dụng SimplifyDeMorganBinaryRector giúp cho đoạn code ngắn gọn và dễ hiểu hơn.
+- ==> Trong biểu thức này, chúng ta kiểm tra xem $a có nhỏ hơn hoặc bằng 20 và $b có lớn hơn 50 hay không. Nếu cả hai điều kiện đều đúng, $result sẽ có giá trị true; ngược lại, nó sẽ có giá trị false.
+- ==> Mục đích của sử dụng SimplifyDeMorganBinaryRector giúp cho đoạn code ngắn gọn và dễ hiểu hơn.
 
 Simplify negated conditions with de Morgan theorem
 
@@ -1238,7 +1238,7 @@ Simplify negated conditions with de Morgan theorem
 <br>
 
 ### SimplifyEmptyArrayCheckRector
-==> Trong đoạn mã, chúng ta có một điều kiện kiểm tra xem một biến $values có phải là một mảng rỗng không bằng cách kết hợp hai hàm is_array và empty. (is_array : kiểm tra là mảng)(empty : kiểm tra rỗng)
+- ==> Trong đoạn mã, chúng ta có một điều kiện kiểm tra xem một biến $values có phải là một mảng rỗng không bằng cách kết hợp hai hàm is_array và empty. (is_array : kiểm tra là mảng)(empty : kiểm tra rỗng)
 
 Simplify `is_array` and `empty` functions combination into a simple identical check for an empty array
 
@@ -1252,7 +1252,7 @@ Simplify `is_array` and `empty` functions combination into a simple identical ch
 <br>
 
 ### SimplifyEmptyCheckOnEmptyArrayRector
-==> Tương tự : SimplifyEmptyArrayCheckRector
+- ==> Tương tự : SimplifyEmptyArrayCheckRector
 
 Simplify `empty()` functions calls on empty arrays
 
