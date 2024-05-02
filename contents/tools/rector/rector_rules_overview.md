@@ -1134,7 +1134,7 @@ Changes `settype()` to (type) where possible
 <br>
 
 ### ShortenElseIfRector
-- ==> ShortenElseIfRector rút gọn cấu trúc else/if thành elseif, giúp mã nguồn trở nên ngắn gọn và dễ đọc hơn. Trong ví dụ bạn đưa ra:
+- ==> ShortenElseIfRector rút gọn cấu trúc else/if thành elseif, giúp mã nguồn trở nên ngắn gọn và dễ đọc hơn. Trong ví dụ - ==>  đưa ra:
 
 Shortens else/if to elseif
 
@@ -1269,6 +1269,8 @@ Simplify `empty()` functions calls on empty arrays
 <br>
 
 ### SimplifyForeachToCoalescingRector
+- ==> SimplifyForeachToCoalescingRector thay đổi các vòng lặp foreach trả về giá trị được thiết lập thành toán tử ??.
+- ==> Sử dụng ?? để tìm kiếm giá trị trong mảng với key cụ thể , thay vì code theo cách là forearch qua tất cả các giá trị và so sánh key của nó . 
 
 Changes foreach that returns set value to ??
 
@@ -1288,6 +1290,59 @@ Changes foreach that returns set value to ??
 <br>
 
 ### SimplifyFuncGetArgsCountRector
+-------------------------------------------------------------
+- ==> Hàm `func_get_args()` là một hàm trong PHP được sử dụng để lấy ra các đối số được truyền vào trong một hàm. Hàm này trả về một mảng chứa các đối số được truyền vào trong quá trình gọi hàm.
+Ví dụ, nếu - ==>  có một hàm như sau:
+```php
+function myFunction() {
+    $args = func_get_args();
+    var_dump($args);
+}
+myFunction('apple', 'banana', 'cherry');
+```
+Khi - ==>  gọi `myFunction('apple', 'banana', 'cherry')`, hàm sẽ trả về một mảng chứa các giá trị `['apple', 'banana', 'cherry']`. 
+Điều này cho phép - ==>  viết các hàm mà không cần biết trước số lượng hoặc loại đối số cụ thể được truyền vào. Tuy nhiên, việc sử dụng `func_get_args()` có thể làm mã nguồn trở nên khó hiểu hơn trong một số trường hợp.
+
+Dưới đây là một ví dụ minh họa:
+
+```php
+// Hàm này trả về tổng của các đối số được truyền vào
+function sumOfArguments() {
+    $argsCount = count(func_get_args()); // Sử dụng cũ
+    $total = 0;
+    for ($i = 0; $i < $argsCount; $i++) {
+        $total += func_get_arg($i);
+    }
+    return $total;
+}
+
+// Sử dụng hàm
+$result = sumOfArguments(1, 2, 3, 4, 5);
+echo $result; // Kết quả sẽ là 15
+```
+
+Sử dụng `func_get_args()` và `count()` trong ví dụ trên để đếm số lượng đối số và lặp qua chúng để tính tổng. 
+
+Sau khi áp dụng `SimplifyFuncGetArgsCountRector`, mã nguồn sẽ trở thành:
+
+```php
+// Hàm này trả về tổng của các đối số được truyền vào
+function sumOfArguments() {
+    $argsCount = func_num_args(); // Sử dụng mới
+    $total = 0;
+    for ($i = 0; $i < $argsCount; $i++) {
+        $total += func_get_arg($i);
+    }
+    return $total;
+}
+
+// Sử dụng hàm
+$result = sumOfArguments(1, 2, 3, 4, 5);
+echo $result; // Kết quả sẽ là 15
+```
+-------------------------------------------------------------
+
+Kết quả là mã nguồn trở nên đơn giản hơn bằng cách sử dụng `func_num_args()` thay vì `count(func_get_args())`.
 
 Simplify count of `func_get_args()` to `func_num_args()`
 
@@ -1301,6 +1356,7 @@ Simplify count of `func_get_args()` to `func_num_args()`
 <br>
 
 ### SimplifyIfElseToTernaryRector
+- ==> Trong trường hợp này, SimplifyIfElseToTernaryRector giúp rút gọn cấu trúc điều kiện if/else thành một biểu thức ba ngôi (ternary) với cùng một giá trị gán.
 
 Changes if/else for same value as assign to ternary
 
@@ -1324,6 +1380,7 @@ Changes if/else for same value as assign to ternary
 <br>
 
 ### SimplifyIfNotNullReturnRector
+- ==> Loại bỏ việc kiểm tra null dư thừa thành trả về trực tiếp . 
 
 Changes redundant null check to instant return
 
@@ -1342,6 +1399,9 @@ Changes redundant null check to instant return
 <br>
 
 ### SimplifyIfNullableReturnRector
+- ==> Trong trường hợp này, SimplifyIfNullableReturnRector giúp loại bỏ một câu lệnh if kiểm tra tính nullable không cần thiết và thay thế nó bằng việc trả về trực tiếp.
+
+- ==> Cả hai đoạn mã thực hiện cùng một chức năng: trả về giá trị của $value nếu nó là một thể hiện của \stdClass, và trả về null nếu không phải. Tuy nhiên, sau khi áp dụng Rector, mã nguồn trở nên ngắn gọn và dễ đọc hơn với sự loại bỏ của câu kiểm tra không cần thiết.
 
 Direct return on if nullable check before return
 
@@ -1369,6 +1429,7 @@ Direct return on if nullable check before return
 <br>
 
 ### SimplifyIfReturnBoolRector
+- ==> Trong trường hợp này, SimplifyIfReturnBoolRector giúp rút gọn câu lệnh if mà trả về true hoặc false thành một lệnh trả về trực tiếp.
 
 Shortens if return false/true to direct return
 
@@ -1386,6 +1447,9 @@ Shortens if return false/true to direct return
 <br>
 
 ### SimplifyInArrayValuesRector
+- ==> Hàm in_array chỉ tìm kiếm giá trị trong mảng mà không tìm key 
+- ==> thêm true vào cuối hàm để yêu cầu tìm chính xác cả giá trị và kiểu dữ liệu (giống như so sánh === thay vì ==)
+- ==> Chính vì thế nên không cần dùng array_values 
 
 Removes unneeded `array_values()` in `in_array()` call
 
@@ -1399,6 +1463,9 @@ Removes unneeded `array_values()` in `in_array()` call
 <br>
 
 ### SimplifyRegexPatternRector
+- ==> Trong trường hợp này, SimplifyRegexPatternRector giúp rút gọn biểu thức regex bằng cách sử dụng các phạm vi ký tự đã biết trước.
+- ==> Cả hai đoạn mã đều thực hiện việc kiểm tra xem chuỗi $value có chứa bất kỳ ký tự chữ hoa, chữ thường hoặc chữ số nào không. Tuy nhiên, sau khi áp dụng Rector, biểu thức regex trở nên ngắn gọn hơn và dễ đọc hơn với việc sử dụng các phạm vi ký tự đã biết trước như \w (chữ cái, chữ số và dấu gạch dưới) và \d (chữ số).
+
 
 Simplify regex pattern to known ranges
 
@@ -1418,6 +1485,7 @@ Simplify regex pattern to known ranges
 <br>
 
 ### SimplifyStrposLowerRector
+- ==> stripos đã tích hợp sẵn strtolower trong nó . tìm kiếm vị trí của chuỗi nào đó trong biến $var 
 
 Simplify `strpos(strtolower()`, "...") calls
 
@@ -1431,6 +1499,9 @@ Simplify `strpos(strtolower()`, "...") calls
 <br>
 
 ### SimplifyTautologyTernaryRector
+- ==> Ban đầu, biểu thức ternary trong mã nguồn kiểm tra nếu $fullyQualifiedTypeHint khác $typeHint, nó sẽ trả về $fullyQualifiedTypeHint, ngược lại sẽ trả về $typeHint.
+
+Sau khi áp dụng Rector, biểu thức ternary được thay thế bằng giá trị của $fullyQualifiedTypeHint. Điều này là kết quả của việc nhận thấy rằng biểu thức ternary luôn trả về $fullyQualifiedTypeHint, không phụ thuộc vào giá trị của biến $typeHint.
 
 Simplify tautology ternary to value
 
@@ -1444,7 +1515,7 @@ Simplify tautology ternary to value
 <br>
 
 ### SimplifyUselessVariableRector
-
+- ==> Loại bỏ mã thừa giúp code gọn gàng và dễ hiểu hơn 
 Removes useless variable assigns
 
 - class: [`Rector\CodeQuality\Rector\FunctionLike\SimplifyUselessVariableRector`](../rules/CodeQuality/Rector/FunctionLike/SimplifyUselessVariableRector.php)
@@ -1460,6 +1531,7 @@ Removes useless variable assigns
 <br>
 
 ### SingleInArrayToCompareRector
+- ==> Nếu mảng chỉ chứa một phần tử thì thay in_array bằng ===
 
 Changes `in_array()` with single element to ===
 
