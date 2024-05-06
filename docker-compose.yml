@@ -1,9 +1,5 @@
 version: '3'
 
-networks:
-  laravel:
-
-
 services:
   nginx:
     container_name: nginx
@@ -20,8 +16,6 @@ services:
     depends_on:
       - app 
       - mysql
-    networks:
-      - laravel
 
   mysql:
     container_name: mysql
@@ -37,8 +31,6 @@ services:
       MYSQL_ROOT_PASSWORD: hivanmanh
       SERVICE_TAGS: dev
       SERVICE_NAME: mysql
-    networks:
-      - laravel
 
   app:
     container_name: app
@@ -62,20 +54,14 @@ services:
         composer install &&
         php artisan migrate:refresh --seed &&
         php-fpm -y /usr/local/etc/php-fpm.conf -R
-    networks:
-      - laravel
 
   rector:
     container_name: rector
     build:
       context: ./docker
       dockerfile: rector.dockerfile
-      args:
-        - UID=${UID:-1000}
-        - GID=${GID:-1000}
     volumes: 
-      - ./contents:/var/www/html:delegated
-    working_dir: /var/www/html
+      - ./contents:/project:delegated
     depends_on: 
       - app  
     # entrypoint: ["tail", "-f", "/dev/null"]
@@ -88,8 +74,6 @@ services:
         composer install &&
         tail -f /dev/null
     # entrypoint: ["sh", "-c", "cd tools/rector && composer install && while true; do sleep 86400; done"]
-    networks:
-      - laravel
       
   client:
     image: node:18.14.2
@@ -106,8 +90,6 @@ services:
         npm install &&
         npm run serve &&
         tail -f /dev/null
-    networks:
-      - laravel
 
   l5-swagger-app:
     image: l5-swagger-app
@@ -129,5 +111,3 @@ services:
       - app
       - rector
       - client
-    networks:
-      - laravel
