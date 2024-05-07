@@ -1,6 +1,5 @@
 {
     "require": {
-        "php": "^8.1.2",
         "rector/rector": "^1.0",
         "driftingly/rector-laravel": "^1.1"
     },
