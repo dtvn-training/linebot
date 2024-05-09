@@ -78,7 +78,9 @@ jobs:
   rector:
     name: Rector Check
     runs-on: ubuntu-latest
-    needs: php_unit_test phpstan
+    needs: 
+      - 'php_unit_test'
+      - 'phpstan'
     steps:
       - name: Checkout repository
         uses: actions/checkout@v2
