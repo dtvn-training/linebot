@@ -6,9 +6,9 @@
     "scripts": {
         "rector": "vendor/bin/rector",
         "rector-rules": "vendor/bin/rector list-rules",
-        "rector-process": "vendor/bin/rector process /project/app",
-        "rector-dry": "vendor/bin/rector process /project/app --dry-run",
-        "rector-dry-debug": "vendor/bin/rector process /project/app --dry-run --debug"
+        "rector-process": "vendor/bin/rector process /project",
+        "rector-dry": "vendor/bin/rector process /project --dry-run",
+        "rector-dry-debug": "vendor/bin/rector process /project --dry-run --debug"
     },
     "autoload-dev": {
         "psr-4": {

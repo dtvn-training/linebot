@@ -47,14 +47,13 @@ return RectorConfig::configure()
     //     $dir_rector . $utils_rector . 'RuleAddCommentRector/config/configured_rule.php'
     // ])
     // ->withAttributesSets(symfony: true, doctrine: true)
-    // ->withPhpSets(php84: true)
     ->withRules([
         RuleAddCommentRector::class
     ])
     // ->withPaths($files)
     // ->withPreparedSets(
-    //     deadCode: true,
+    //     deadCode: false,
     //     codeQuality: false,
     // )
-    ->withFileExtensions(['php', 'phtml', 'js', 'blade.php']);
+    ->withFileExtensions(['php', 'phtml']);
 

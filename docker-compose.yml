@@ -62,8 +62,6 @@ services:
       dockerfile: rector.dockerfile
     volumes: 
       - ./contents:/project:delegated
-    depends_on: 
-      - app  
     # entrypoint: ["tail", "-f", "/dev/null"]
     tty: true
     entrypoint: 
