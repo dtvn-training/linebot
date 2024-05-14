@@ -4,25 +4,29 @@ declare(strict_types=1);
 
 namespace Utils\Rector\Tests\Rector\RuleAddCommentRector;
 
-use Rector\Testing\PHPUnit\AbstractRectorTestCase;
+use Iterator;
+use Symplify\RuleDocGenerator\Tests\AbstractRectorTestCase;
+use Utils\Rector\Rector\RuleAddCommentRector;
 
 final class RuleAddCommentRectorTest extends AbstractRectorTestCase
 {
     /**
      * @dataProvider provideData()
+     * @param string $fileBefore
+     * @param string $fileAfter
      */
-    public function test(string $filePath): void
+    public function test(string $fileBefore, string $fileAfter): void
     {
-        $this->doTestFile($filePath);
+        $this->doTest($fileBefore, $fileAfter);
     }
 
-    public static function provideData(): \Iterator
+    public function provideData(): Iterator
     {
-        return self::yieldFilesFromDirectory(__DIR__ . '/Fixture');
+        return $this->yieldFilesFromDirectory(__DIR__ . '/Fixture');
     }
 
-    public function provideConfigFilePath(): string
+    protected function getRectorClass(): string
     {
-        return __DIR__ . '/config/configured_rule.php';
+        return RuleAddCommentRector::class;
     }
 }

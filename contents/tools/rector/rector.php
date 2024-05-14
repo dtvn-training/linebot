@@ -55,9 +55,9 @@ return RectorConfig::configure()
     //     $dir_rector . $utils_rector . 'RuleAddCommentRector/config/configured_rule.php'
     // ])
     // ->withAttributesSets(symfony: true, doctrine: true)
-    // ->withRules([
-    //     RuleAddCommentRector::class,
-    // ])
+    ->withRules([
+        RuleAddCommentRector::class,
+    ])
     // ->withPaths($files)
     // ->withPreparedSets(
     //     deadCode: false,

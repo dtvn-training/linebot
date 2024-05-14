@@ -49,7 +49,10 @@ CODE_SAMPLE
         // @todo change the node
         if ($node instanceof \PhpParser\Node\Stmt\Class_) {
             foreach ($node->getMethods() as $method) {
-                $method->setAttribute('comments', [new \PhpParser\Comment('// @todo add comment before this function')]);
+                $comments = $method->getComments();
+                if (empty($comments)) {
+                    $method->setAttribute('comments', [new \PhpParser\Comment('// @todo add comment before this function')]);
+                }
             }
         }
         return $node;
