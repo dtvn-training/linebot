@@ -21,10 +21,10 @@ use Rector\Renaming\Rector\Name\RenameClassRector;
 //     // }
 // }
 return RectorConfig::configure()
-    // ->withSets([
-        // LaravelSetList::LARAVEL_100
+    ->withSets([
+        LaravelSetList::LARAVEL_100
         // DowngradeLevelSetList::DOWN_TO_PHP_72 # rector downgrade 
-    // ])
+    ])
     // ->withImportNames() # use SHORT NAME , not use FQN 
     // ->withImportNames(importShortClasses: false) # use FQN , no use SHORT NAME
     // ->withConfiguredRule(RenameClassRector::class, [
@@ -54,14 +54,14 @@ return RectorConfig::configure()
     //     $dir_rector . $utils_rector . 'RuleABCRector/config/configured_rule.php',
     //     $dir_rector . $utils_rector . 'RuleAddCommentRector/config/configured_rule.php'
     // ])
-    // ->withAttributesSets(symfony: true, doctrine: true)
-    ->withRules([
-        RuleAddCommentRector::class,
-    ])
+    ->withAttributesSets(symfony: true, doctrine: true)
+    // ->withRules([
+    //     RuleAddCommentRector::class,
+    // ])
     // ->withPaths($files)
-    // ->withPreparedSets(
-    //     deadCode: false,
-    //     codeQuality: false,
-    // )
+    ->withPreparedSets(
+        deadCode: false,
+        codeQuality: false,
+    )
     ->withFileExtensions(['php', 'phtml']);
 
