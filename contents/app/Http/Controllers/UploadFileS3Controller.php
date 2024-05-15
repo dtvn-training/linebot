@@ -15,6 +15,19 @@ class UploadFileS3Controller extends Controller
     public function uploadFileToS3(Request $request)
     {
         if ($request->hasFile('file')) {
+
+            /**test permission read ans write file in app container docker 
+
+            // http://localhost:99/storage/avatars/avatar.jpg
+            // linebot/contents/storage/app/public/avatars/avatar.jpg
+
+            // $file = $request->file('file');
+            // $filename = $file->getClientOriginalName();
+            // $path = $file->storeAs('avatars', $filename, 'public');
+            // $url = $path;
+            
+            **/
+
             $file = $request->file('file');
             $name = time() . $file->getClientOriginalName();
             $filePath = 'linebot/' . $name;
