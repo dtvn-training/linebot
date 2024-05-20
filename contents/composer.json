@@ -9,31 +9,30 @@
         "aws/aws-sdk-php-laravel": "^3.8",
         "brian2694/laravel-toastr": "5.57",
         "cloudinary-labs/cloudinary-laravel": "^2.0",
-        "darkaonline/l5-swagger": "^8.6",
-        "fruitcake/laravel-cors": "^2.0.5",
+        "darkaonline/l5-swagger": "8.6.0",
         "guzzlehttp/guzzle": "^7.8",
-        "laravel/framework": "^9.0",
+        "laravel/framework": "^10",
         "laravel/pint": "^1.13",
         "laravel/sanctum": "^3.3",
-        "laravel/tinker": "2.7",
+        "laravel/tinker": "2.9",
         "league/flysystem-aws-s3-v3": "^3.24",
         "predis/predis": "^2.2",
         "socialiteproviders/github": "4.1",
         "socialiteproviders/gitlab": "4.1",
         "socialiteproviders/google": "4.1",
         "socialiteproviders/twitter": "4.1",
-        "tomfordrumm/jwt-auth": "dev-develop"
+        "php-open-source-saver/jwt-auth": "^2.3.0"
     },
     "require-dev": {
         "barryvdh/laravel-debugbar": "^3.9",
         "brainmaestro/composer-git-hooks": "*",
         "fakerphp/faker": "^1.9.1",
-        "larastan/larastan": "2.0",
+        "larastan/larastan": "^2.9.2",
         "laravel/sail": "^1.0.1",
         "mockery/mockery": "^1.6",
-        "nunomaduro/collision": "^6.1",
-        "phpunit/phpunit": "^9.5.10",
-        "spatie/laravel-ignition": "^1.0"
+        "nunomaduro/collision": "^7.0",
+        "phpunit/phpunit": "^10.0",
+        "spatie/laravel-ignition": "^2.0"
     },
     "autoload": {
         "psr-4": {
