@@ -182,7 +182,7 @@ return [
         App\Providers\RepositoryServiceProvider::class,
         Barryvdh\Debugbar\ServiceProvider::class,
         Brian2694\Toastr\ToastrServiceProvider::class,
-        Tymon\JWTAuth\Providers\LaravelServiceProvider::class,
+        // Tymon\JWTAuth\Providers\LaravelServiceProvider::class, // remove package 
         CloudinaryLabs\CloudinaryLaravel\CloudinaryServiceProvider::class,
         Aws\Laravel\AwsServiceProvider::class,
     ],
