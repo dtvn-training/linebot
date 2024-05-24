@@ -66,8 +66,8 @@ services:
       - -c
       - |
         cd tools/rector &&
-        composer install &&
-        tail -f /dev/null
+        composer install && 
+        php-fpm
     # entrypoint: ["sh", "-c", "cd tools/rector && composer install && while true; do sleep 86400; done"]
       
   client:
@@ -84,7 +84,7 @@ services:
       - |
         npm install &&
         npm run serve &&
-        tail -f /dev/null
+        php-fpm
 
   l5-swagger-app:
     image: l5-swagger-app

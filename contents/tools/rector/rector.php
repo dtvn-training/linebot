@@ -2,6 +2,8 @@
 
 use Rector\CodeQuality\Rector\LogicalAnd\AndAssignsToSeparateLinesRector;
 use Rector\Config\RectorConfig; 
+use Rector\Set\ValueObject\SetList;
+use Rector\Set\ValueObject\LevelSetList;
 use RectorLaravel\Set\LaravelSetList;
 use Rector\Doctrine\Set\DoctrineSetList;
 use Rector\TypeDeclaration\Rector\Property\TypedPropertyFromStrictConstructorRector;
@@ -21,10 +23,48 @@ use Rector\Renaming\Rector\Name\RenameClassRector;
 //     // }
 // }
 return RectorConfig::configure()
+    ->withPhpSets(php84: true)
     ->withSets([
-        LaravelSetList::LARAVEL_100
-        // DowngradeLevelSetList::DOWN_TO_PHP_72 # rector downgrade 
+
+        // LaravelSetList::LARAVEL_100,
+        // LaravelSetList::LARAVEL_110,
+        // LevelSetList::UP_TO_PHP_82,
+        // DowngradeLevelSetList::DOWN_TO_PHP_74, # rector downgrade 
+
+        // SetList::PHP_71,
+        // SetList::PHP_72,
+        // SetList::PHP_73,
+        // SetList::PHP_74,
+        // SetList::PHP_80,
+        // SetList::PHP_81,
+        // SetList::PHP_82,
+        // SetList::PHP_83,
+
+        // SetList::PHP_74,
+        // SetList::PHP_80,
+        // SetList::PHP_82,
+        // SetList::PHP_54,
+        // SetList::PHP_55,
     ])
+    // ->withSets([
+    //     LaravelSetList::LARAVEL_100,
+
+    //     LevelSetList::UP_TO_PHP_53,
+    //     LevelSetList::UP_TO_PHP_54, 
+    //     LevelSetList::UP_TO_PHP_55,
+    //     LevelSetList::UP_TO_PHP_56,
+    //     LevelSetList::UP_TO_PHP_70,
+    //     LevelSetList::UP_TO_PHP_72,
+    //     LevelSetList::UP_TO_PHP_73,
+    //     LevelSetList::UP_TO_PHP_74,
+    //     LevelSetList::UP_TO_PHP_80,
+    //     LevelSetList::UP_TO_PHP_81,
+    //     LevelSetList::UP_TO_PHP_82,
+    //     LevelSetList::UP_TO_PHP_83,
+    //     LevelSetList::UP_TO_PHP_84,
+        
+    //     DowngradeLevelSetList::DOWN_TO_PHP_72 # rector downgrade 
+    // ])
     // ->withImportNames() # use SHORT NAME , not use FQN 
     // ->withImportNames(importShortClasses: false) # use FQN , no use SHORT NAME
     // ->withConfiguredRule(RenameClassRector::class, [
@@ -54,14 +94,9 @@ return RectorConfig::configure()
     //     $dir_rector . $utils_rector . 'RuleABCRector/config/configured_rule.php',
     //     $dir_rector . $utils_rector . 'RuleAddCommentRector/config/configured_rule.php'
     // ])
-    ->withAttributesSets(symfony: true, doctrine: true)
     // ->withRules([
     //     RuleAddCommentRector::class,
     // ])
     // ->withPaths($files)
-    ->withPreparedSets(
-        deadCode: false,
-        codeQuality: false,
-    )
     ->withFileExtensions(['php', 'phtml']);
 
