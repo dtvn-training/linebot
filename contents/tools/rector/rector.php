@@ -1,6 +1,8 @@
 <?php
 
 use Rector\CodeQuality\Rector\LogicalAnd\AndAssignsToSeparateLinesRector;
+use Rector\CodingStyle\Rector\FuncCall\ArraySpreadInsteadOfArrayMergeRector;
+use Rector\CodingStyle\Rector\FuncCall\CallUserFuncArrayToVariadicRector;
 use Rector\Config\RectorConfig; 
 use Rector\Set\ValueObject\SetList;
 use Rector\Set\ValueObject\LevelSetList;
@@ -33,48 +35,48 @@ return RectorConfig::configure()
         // DowngradeLevelSetList::DOWN_TO_PHP_72,
         // DowngradeLevelSetList::DOWN_TO_PHP_71,
 
-        // LaravelSetList::LARAVEL_50, 
-        // LaravelSetList::LARAVEL_51, 
-        // LaravelSetList::LARAVEL_52, 
-        // LaravelSetList::LARAVEL_53, 
-        // LaravelSetList::LARAVEL_54, 
-        // LaravelSetList::LARAVEL_55, 
-        // LaravelSetList::LARAVEL_56, 
-        // LaravelSetList::LARAVEL_57, 
-        // LaravelSetList::LARAVEL_58, 
-        // LaravelSetList::LARAVEL_60, 
-        // LaravelSetList::LARAVEL_70, 
-        // LaravelSetList::LARAVEL_80, 
-        // LaravelSetList::LARAVEL_90, 
-        // LaravelSetList::LARAVEL_100, 
-        // LaravelSetList::LARAVEL_110, 
+        LaravelSetList::LARAVEL_50, 
+        LaravelSetList::LARAVEL_51, 
+        LaravelSetList::LARAVEL_52, 
+        LaravelSetList::LARAVEL_53, 
+        LaravelSetList::LARAVEL_54, 
+        LaravelSetList::LARAVEL_55, 
+        LaravelSetList::LARAVEL_56, 
+        LaravelSetList::LARAVEL_57, 
+        LaravelSetList::LARAVEL_58, 
+        LaravelSetList::LARAVEL_60, 
+        LaravelSetList::LARAVEL_70, 
+        LaravelSetList::LARAVEL_80, 
+        LaravelSetList::LARAVEL_90, 
+        LaravelSetList::LARAVEL_100, 
+        LaravelSetList::LARAVEL_110, 
 
-        // SetList::CODE_QUALITY,
-        // SetList::CODING_STYLE,
-        // SetList::DEAD_CODE,
-        // SetList::STRICT_BOOLEANS,
-        // SetList::GMAGICK_TO_IMAGICK,
-        // SetList::NAMING,
-        // SetList::PRIVATIZATION,
-        // SetList::TYPE_DECLARATION,
-        // SetList::EARLY_RETURN,
-        // SetList::INSTANCEOF,
+        SetList::CODE_QUALITY,
+        SetList::CODING_STYLE,
+        SetList::DEAD_CODE,
+        SetList::STRICT_BOOLEANS,
+        SetList::GMAGICK_TO_IMAGICK,
+        SetList::NAMING,
+        SetList::PRIVATIZATION,
+        SetList::TYPE_DECLARATION,
+        SetList::EARLY_RETURN,
+        SetList::INSTANCEOF,
 
-        // SetList::PHP_52,
-        // SetList::PHP_53,
-        // SetList::PHP_54,
-        // SetList::PHP_55,
-        // SetList::PHP_56,
-        // SetList::PHP_70,
-        // SetList::PHP_71,
-        // SetList::PHP_72,
-        // SetList::PHP_73,
-        // SetList::PHP_74,
-        // SetList::PHP_80,
-        // SetList::PHP_81,
-        // SetList::PHP_82,
-        // SetList::PHP_83,
-        // SetList::PHP_84,
+        SetList::PHP_52,
+        SetList::PHP_53,
+        SetList::PHP_54,
+        SetList::PHP_55,
+        SetList::PHP_56,
+        SetList::PHP_70,
+        SetList::PHP_71,
+        SetList::PHP_72,
+        SetList::PHP_73,
+        SetList::PHP_74,
+        SetList::PHP_80,
+        SetList::PHP_81,
+        SetList::PHP_82,
+        SetList::PHP_83,
+        SetList::PHP_84,
 
         // LevelSetList::UP_TO_PHP_53,
         // LevelSetList::UP_TO_PHP_54, 
@@ -119,14 +121,22 @@ return RectorConfig::configure()
     //     $dir_rector . $utils_rector . 'RuleABCRector/config/configured_rule.php',
     //     $dir_rector . $utils_rector . 'RuleAddCommentRector/config/configured_rule.php'
     // ])
-    // ->withRules([
-    //     RuleAddCommentRector::class,
-    // ])
+    ->withRules([
+        ArraySpreadInsteadOfArrayMergeRector::class,
+        CallUserFuncArrayToVariadicRector::class,
+    ])
     // ->withPaths($files)
     // ->withAttributesSets(symfony: true, doctrine: true)
-    // ->withPreparedSets(
-    //     deadCode: false,
-    //     codeQuality: false,
-    // )
+    ->withPreparedSets(
+        deadCode: true,
+        codeQuality: true,
+        codingStyle: true,
+        typeDeclarations: true,
+        privatization: true,
+        naming: true,
+        instanceOf: true,
+        earlyReturn: true,
+        strictBooleans: true,
+    )
     ->withFileExtensions(['php', 'phtml']);
 
