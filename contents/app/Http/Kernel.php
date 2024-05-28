@@ -54,7 +54,7 @@ class Kernel extends HttpKernel
      *
      * @var array<string, class-string|string>
      */
-    protected $routeMiddleware = [
+    protected $middlewareAliases = [
         'auth' => \App\Http\Middleware\Authenticate::class,
         'check.auth' => \App\Http\Middleware\CheckAuthenticate::class,
         'logged' => \App\Http\Middleware\RedirectWhenAuthenticated::class,
