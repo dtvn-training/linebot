@@ -20,7 +20,8 @@
         "socialiteproviders/github": "4.1",
         "socialiteproviders/gitlab": "4.1",
         "socialiteproviders/google": "4.1",
-        "socialiteproviders/twitter": "4.1"
+        "socialiteproviders/twitter": "4.1",
+        "php-open-source-saver/jwt-auth": "^2.3.0"
     },
     "require-dev": {
         "barryvdh/laravel-debugbar": "^3.9",
