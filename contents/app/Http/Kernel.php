@@ -16,7 +16,8 @@ class Kernel extends HttpKernel
     protected $middleware = [
         // \App\Http\Middleware\TrustHosts::class,
         \App\Http\Middleware\TrustProxies::class,
-        \Fruitcake\Cors\HandleCors::class,
+        // \Fruitcake\Cors\HandleCors::class,
+        \App\Http\Middleware\Cors::class,
         \App\Http\Middleware\PreventRequestsDuringMaintenance::class,
         \Illuminate\Foundation\Http\Middleware\ValidatePostSize::class,
         \App\Http\Middleware\TrimStrings::class,
@@ -53,10 +54,11 @@ class Kernel extends HttpKernel
      *
      * @var array<string, class-string|string>
      */
-    protected $middlewareAliases = [
+    protected $routeMiddleware = [
         'auth' => \App\Http\Middleware\Authenticate::class,
         'check.auth' => \App\Http\Middleware\CheckAuthenticate::class,
         'logged' => \App\Http\Middleware\RedirectWhenAuthenticated::class,
+        'cors' => \App\Http\Middleware\Cors::class, 
         // 'role' => \App\Http\Middleware\CheckUserRole::class,
         // 'role_admin' => \App\Http\Middleware\CheckAdminRole::class,
         'role' => \App\Http\Middleware\CheckRole::class, // Tại vì admins và users đều có cột role nên dùng chung luôn , không cần tách ra nữa
