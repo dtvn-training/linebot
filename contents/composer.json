@@ -27,7 +27,7 @@
         "brainmaestro/composer-git-hooks": "*",
         "fakerphp/faker": "^1.9.1",
         "larastan/larastan": "^2.9.2",
-        "laravel/sail": "^1.0.1",
+        "laravel/sail": "^1.19",
         "mockery/mockery": "^1.6",
         "nunomaduro/collision": "^7.0",
         "phpunit/phpunit": "^10.0",
