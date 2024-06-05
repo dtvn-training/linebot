@@ -12,16 +12,21 @@ use Illuminate\Support\Facades\Hash;
 class UserFactory extends Factory
 {
     /**
+     * The current password being used by the factory.
+     */
+    protected static ?string $password;
+
+    /**
      * Define the model's default state.
      *
-     * @return array
+     * @return array<string, mixed>
      */
-    public function definition()
+    public function definition(): array
     {
         return [
             'name' => $this->faker->name(),
             'email' => $this->faker->unique()->safeEmail(),
-            'password' => Hash::make(random_bytes(6)),
+            'password' => static::$password ??= Hash::make('password'),
             'line_user_id' => bin2hex(random_bytes(16)),
             'is_delete' => 0,
             'is_block' => 0,
@@ -36,7 +41,7 @@ class UserFactory extends Factory
      *
      * @return \Illuminate\Database\Eloquent\Factories\Factory
      */
-    public function unverified()
+    public function unverified(): static
     {
         return $this->state(function (array $attributes) {
             return [
