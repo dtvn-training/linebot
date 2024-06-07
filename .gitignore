@@ -8,3 +8,4 @@ v2-redis.env
 contents/DigiCertGlobalRootG2.crt.pem
 contents/LINEBot(Main).postman_collection.json
 /contents/tools/rector/vendor
+/contents/.phpunit.cache

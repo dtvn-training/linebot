@@ -3,6 +3,7 @@
 namespace App\Http\Middleware;
 
 use Illuminate\Auth\Middleware\Authenticate as Middleware;
+use Illuminate\Http\Request;
 
 class Authenticate extends Middleware
 {
@@ -12,7 +13,7 @@ class Authenticate extends Middleware
      * @param \Illuminate\Http\Request $request
      * @return string|null
      */
-    protected function redirectTo($request)
+    protected function redirectTo(Request $request): ?string
     {
         // Authenticate này của hệ thống nên khó tùy biến => tạo file mới CheckAuthenticate.php
 
@@ -22,9 +23,11 @@ class Authenticate extends Middleware
 
         // Cách 1 :
         // request web
-        if (! $request->expectsJson()) {
-            return route('errors.401');
-        }
+        // if (! $request->expectsJson()) {
+            // return route('errors.401');
+        // }
+
+        return $request->expectsJson() ? null : route('login');
 
         // request api
         // LỖI
